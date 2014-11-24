@@ -1,0 +1,16 @@
+#sessions-create {
+
+    max-width: 330px;
+    margin: 80px auto 0;
+}
+
+#sessions-create input[type=text] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+#sessions-create input[type=password] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}

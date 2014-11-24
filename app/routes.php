@@ -20,4 +20,6 @@ Route::get('/product/{slug}/pay', [
 	'as'    => 'products.pay'
 ]);
 
-
+Route::resource('sessions', 'SessionsController', [
+	'only' => ['index', 'create', 'store', 'destroy']
+]);
