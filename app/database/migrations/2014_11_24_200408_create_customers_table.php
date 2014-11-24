@@ -18,6 +18,7 @@ class CreateCustomersTable extends Migration {
 			$table->string('name');
 			$table->string('email')->unique();
 			$table->string('billing_id');
+			$table->timestamps();
 			$table->softDeletes();
 		});
 	}
@@ -29,7 +30,7 @@ class CreateCustomersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('products');
+		Schema::drop('customers');
 	}
 
 }

@@ -2,7 +2,7 @@
 
 Route::get('/', function()
 {
-	header("Location: http://beta.jakobsteinn.com");
+	return Redirect::away('http://beta.jakobsteinn.com');
 });
 
 Route::get('/product/{slug}', [
@@ -21,5 +21,5 @@ Route::get('/product/{slug}/pay', [
 ]);
 
 Route::resource('sessions', 'SessionsController', [
-	'only' => ['index', 'create', 'store', 'destroy']
+	'only' => ['create', 'store', 'destroy']
 ]);

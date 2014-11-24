@@ -11,6 +11,8 @@
 |
 */
 
+use Laracasts\Validation\FormValidationException;
+
 ClassLoader::addDirectories(array(
 
 	app_path().'/commands',
@@ -49,6 +51,13 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);
+});
+
+App::error(function(FormValidationException $exception, $code)
+{
+	Flash::error('Please see errors below.');
+
+	return Redirect::back()->withInput()->withErrors($exception->getErrors());
 });
 
 /*

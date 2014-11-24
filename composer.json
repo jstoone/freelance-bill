@@ -11,7 +11,9 @@
 	},
 	"require-dev": {
 	  "way/generators": "~2.0",
-	  "fzaninotto/faker": "1.4.*"
+	  "fzaninotto/faker": "1.4.*",
+	  "laracasts/commander": "~1.0",
+	  "laracasts/validation": "~1.0"
 	},
 	"autoload": {
 		"classmap": [

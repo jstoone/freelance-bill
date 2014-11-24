@@ -1,20 +1,12 @@
 <?php
 
+use JakobSteinn\Sessions\SessionsCommand;
+use JakobSteinn\Sessions\LoginSanitizer;
+
 class SessionsController extends \BaseController {
 
 	/**
-	 * Display a listing of the resource.
-	 * GET /sessions
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		return View::make('sessions.index');
-	}
-
-	/**
-	 * Show the form for creating a new resource.
+	 * Show the form for logging in.
 	 * GET /sessions/create
 	 *
 	 * @return Response
@@ -25,26 +17,36 @@ class SessionsController extends \BaseController {
 	}
 
 	/**
-	 * Store a newly created resource in storage.
+	 * Create a new session for user
 	 * POST /sessions
 	 *
 	 * @return Response
 	 */
 	public function store()
 	{
-		//
+		$loginSuccess = $this->execute(SessionsCommand::class, null, [
+			LoginSanitizer::class
+		]);
+
+		if( ! $loginSuccess)
+		{
+			Flash::warning('Invalid credentials');
+			return Redirect::back()->withInput();
+		}
+
+		Flash::success('Weeee!');
+		return Redirect::route('sessions.create');
 	}
 
 	/**
-	 * Remove the specified resource from storage.
+	 * Log user out
 	 * DELETE /sessions/{id}
 	 *
-	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy()
 	{
-		//
+		Auth::logout();
 	}
 
 }

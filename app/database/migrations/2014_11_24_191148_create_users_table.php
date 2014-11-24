@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration {
 		    $table->increments('id');
 		    $table->string('username');
 			$table->string('password');
+			$table->timestamps();
 			$table->rememberToken();
 		});
 	}
@@ -28,7 +29,7 @@ class CreateUsersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('products');
+		Schema::drop('users');
 	}
 
 }
