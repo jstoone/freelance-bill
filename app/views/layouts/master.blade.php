@@ -7,7 +7,8 @@
   <meta name="publish-key" content="{{Config::get('services.stripe.publish')}}">
   <title>Billing</title>
 
-  <link rel="stylesheet" href="/css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="/css/main.css"/>
 </head>
 <body>
@@ -18,8 +19,8 @@
 
   <footer>
     @yield('footer')
-    <script type="text/javascript" src="/js/vendor/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="/js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
   </footer>
 </body>
 </html>

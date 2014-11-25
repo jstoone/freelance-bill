@@ -33,7 +33,7 @@
 				<div class="col-md-8">
 					{{ Form::label('customer', 'Customer', ['class' => 'control-label']) }}
 
-					{{ Form::select('name', [] , null , [
+					{{ Form::select('name', $customers , null , [
 						'class' => 'form-control',
 						'id'    => 'customer',
 					]) }}

@@ -1,12 +1,18 @@
 <?php namespace JakobSteinn\Products;
 
+use JakobSteinn\Users\Customer;
 use Laracasts\Presenter\PresentableTrait;
 
 class Product extends \Eloquent {
 
 	use PresentableTrait;
 
-	protected $presenter = 'JakobSteinn\Products\ProductPresenter';
+	/**
+	 * Path to view presenter class
+	 *
+	 * @var string
+	 */
+	protected $presenter = ProductPresenter::class;
 
 	/**
 	 * Specify which table to use
@@ -22,6 +28,14 @@ class Product extends \Eloquent {
 	 */
 	protected $fillable = ['name', 'price', 'description', 'password', 'is_paid'];
 
+
+	/**
+	 * Define relationship between this product and it's owner
+	 */
+	public function customer()
+	{
+		$this->belongsTo(Customer::class);
+	}
 
 	/**
 	 * Multiply to translate from "øre" to "kroner"

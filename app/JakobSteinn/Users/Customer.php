@@ -1,6 +1,7 @@
 <?php namespace JakobSteinn\Users;
 
 use Illuminate\Support\Str;
+use JakobSteinn\Products\Product;
 
 class Customer extends \Eloquent {
 
@@ -11,6 +12,17 @@ class Customer extends \Eloquent {
 	 */
 	protected $fillable = ['name', 'email', 'billing_id'];
 
+
+	public function products()
+	{
+		$this->hasMany(Product::class);
+	}
+
+	/**
+	 * Make sure that names are formatted correctly
+	 *
+	 * @param $value string
+	 */
 	public function setNameAttribute($value)
 	{
 		$this->attributes['name'] = Str::title($value);

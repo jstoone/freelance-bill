@@ -1,5 +1,8 @@
 <?php
 
+use JakobSteinn\Products\Product;
+use JakobSteinn\Users\Customer;
+
 class AdminProductsController extends \BaseController {
 
 	/**
@@ -10,7 +13,9 @@ class AdminProductsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$products = Product::all();
+
+		return View::make('admin.products.index', compact('products'));
 	}
 
 	/**
@@ -21,7 +26,8 @@ class AdminProductsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('admin.products.create');
+		$customers = Customer::lists('name', 'id');
+		return View::make('admin.products.create', compact('customers'));
 	}
 
 	/**
