@@ -6,16 +6,6 @@ use Laracasts\Commander\CommandBus;
 class LoginSanitizer implements CommandBus {
 
 	/**
-	 * @var LoginForm
-	 */
-	private $loginForm;
-
-	function __construct(LoginForm $loginForm)
-	{
-		$this->loginForm = $loginForm;
-	}
-
-	/**
 	 * Execute login form sanitizer
 	 *
 	 * @param $command
@@ -23,6 +13,6 @@ class LoginSanitizer implements CommandBus {
 	 */
 	public function execute($command)
 	{
-		$this->loginForm->validate(Input::all());
+
 	}
 }

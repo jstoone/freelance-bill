@@ -2,59 +2,16 @@
 
 @section('content')
 	<div id="admin-index" class="col-md-12">
-		<h1>Admin area!</h1>
-
-		<h2>Products</h2>
+		<h1>Products <small>10 most recent</small></h1>
 		<p>
 			<a class="btn btn-sm btn-success" href="{{ URL::route('admin.product.create') }}">New product</a>
+		</p>
+		@include('admin.products.partials.list', compact('products'))
+
+		<h1>Customers <small>10 most recent</small></h1>
+		<p>
 			<a class="btn btn-sm btn-success" href="{{ URL::route('admin.customer.create') }}">New Costumer</a>
 		</p>
-		<table class="table table-striped table-hover">
-		<colgroup>
-			<col width="5%"/>
-			<col width="20%"/>
-			<col width="5%"/>
-			<col width="50%"/>
-			<col width="10%"/>
-			<col width="10%"/>
-		</colgroup>
-		<thead>
-			<tr>
-				<th>#</th>
-				<th>Name</th>
-				<th>Price</th>
-				<th>Description</th>
-				<th>Paid?</th>
-				<th>Actions</th>
-			</tr>
-		</thead>
-		<tbody>
-		@foreach( $products as $product )
-			<tr>
-				<td>{{ $product->id }}</td>
-				<td>
-					{{ $product->name }}
-				</td>
-				<td>
-					{{ $product->present()->price }}
-                </td>
-                <td>
-                    {{ $product->description }}
-                </td>
-                <td align="center">
-                    @if($product->is_paid)
-                        <span class="label label-success">Payed</span>
-                    @else
-                        <span class="label label-warning">Pending</span>
-                    @endif
-                </td>
-                <td>
-					<a class="btn btn-xs btn-primary" href="{{ URL::route('admin.product.edit', $product->slug) }}">Edit</a>
-                    <a class="btn btn-xs btn-danger" href="{{ URL::route('admin.product.destroy', $product->slug) }}">Delete</a>
-                </td>
-			</tr>
-		@endforeach
-		</tbody>
-		</table>
+		@include('admin.customers.partials.list', compact('customers'))
 	</div>
 @stop

@@ -1,6 +1,22 @@
 <?php
 
-class AdminCustomerController extends \BaseController {
+use Illuminate\Support\Facades\Input;
+use JakobSteinn\Users\CreateCustomerCommand;
+use JakobSteinn\Users\CreateCustomerForm;
+use JakobSteinn\Users\CustomerSanitizer;
+
+class AdminCustomerController extends \BaseController
+{
+
+	/**
+	 * @var CreateCustomerForm
+	 */
+	private $customerForm;
+
+	function __construct(CreateCustomerForm $customerForm)
+	{
+		$this->customerForm = $customerForm;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -32,14 +48,26 @@ class AdminCustomerController extends \BaseController {
 	 */
 	public function store()
 	{
+		$this->customerForm->validate(Input::all());
 
+		$customer = $this->execute(CreateCustomerCommand::class, null, [
+			CustomerSanitizer::class
+		]);
+
+		if ( ! $customer) {
+			Flash::error("Wooops. Something went wrong");
+			return Redirect::back()->withInput();
+		}
+
+		Flash::success('YES! We successfully created customer: '. $customer->name);
+		return Redirect::route('admin.index');
 	}
 
 	/**
 	 * Display the specified resource.
 	 * GET /admincustomer/{id}
 	 *
-	 * @param  int  $id
+	 * @param  int $id
 	 * @return Response
 	 */
 	public function show($id)
@@ -51,7 +79,7 @@ class AdminCustomerController extends \BaseController {
 	 * Show the form for editing the specified resource.
 	 * GET /admincustomer/{id}/edit
 	 *
-	 * @param  int  $id
+	 * @param  int $id
 	 * @return Response
 	 */
 	public function edit($id)
@@ -63,7 +91,7 @@ class AdminCustomerController extends \BaseController {
 	 * Update the specified resource in storage.
 	 * PUT /admincustomer/{id}
 	 *
-	 * @param  int  $id
+	 * @param  int $id
 	 * @return Response
 	 */
 	public function update($id)
@@ -75,7 +103,7 @@ class AdminCustomerController extends \BaseController {
 	 * Remove the specified resource from storage.
 	 * DELETE /admincustomer/{id}
 	 *
-	 * @param  int  $id
+	 * @param  int $id
 	 * @return Response
 	 */
 	public function destroy($id)

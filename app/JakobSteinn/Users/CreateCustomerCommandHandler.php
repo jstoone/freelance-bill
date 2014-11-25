@@ -7,11 +7,14 @@ class CreateCustomerCommandHandler implements CommandHandler {
 	/**
 	 * Handle the command
 	 *
-	 * @param $command
+	 * @param CreateCustomerCommand $command
 	 * @return mixed
 	 */
 	public function handle($command)
 	{
-		// TODO: Implement handle() method.
+		return Customer::create([
+				'name'  => $command->name,
+				'email' => $command->email
+		]);
 	}
 }

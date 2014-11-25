@@ -1,13 +1,20 @@
 <?php
 
 use JakobSteinn\Sessions\LoginCommand;
+use JakobSteinn\Sessions\LoginForm;
 use JakobSteinn\Sessions\LoginSanitizer;
 
 class SessionsController extends \BaseController {
 
-	public function __construct()
+	/**
+	 * @var LoginForm
+	 */
+	private $loginForm;
+
+	public function __construct(LoginForm $loginForm)
 	{
 		$this->beforeFilter('guest');
+		$this->loginForm = $loginForm;
 	}
 
 	/**
@@ -29,6 +36,8 @@ class SessionsController extends \BaseController {
 	 */
 	public function store()
 	{
+		$this->loginForm->validate(Input::all());
+
 		$loginSuccess = $this->execute(LoginCommand::class, null, [
 			LoginSanitizer::class
 		]);
