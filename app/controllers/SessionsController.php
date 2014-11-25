@@ -1,6 +1,6 @@
 <?php
 
-use JakobSteinn\Sessions\SessionsCommand;
+use JakobSteinn\Sessions\LoginCommand;
 use JakobSteinn\Sessions\LoginSanitizer;
 
 class SessionsController extends \BaseController {
@@ -29,7 +29,7 @@ class SessionsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$loginSuccess = $this->execute(SessionsCommand::class, null, [
+		$loginSuccess = $this->execute(LoginCommand::class, null, [
 			LoginSanitizer::class
 		]);
 

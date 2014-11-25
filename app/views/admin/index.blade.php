@@ -7,7 +7,7 @@
 		<h2>Products</h2>
 		<p>
 			<a class="btn btn-sm btn-success" href="{{ URL::route('admin.product.create') }}">New product</a>
-			<a class="btn btn-sm btn-success" href="{{ URL::route('admin.product.create') }}">New Costumer</a>
+			<a class="btn btn-sm btn-success" href="{{ URL::route('admin.customer.create') }}">New Costumer</a>
 		</p>
 		<table class="table table-striped table-hover">
 		<colgroup>

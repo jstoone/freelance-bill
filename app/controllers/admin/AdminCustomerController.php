@@ -21,7 +21,7 @@ class AdminCustomerController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('admin.customers.create');
 	}
 
 	/**
@@ -32,7 +32,7 @@ class AdminCustomerController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+
 	}
 
 	/**

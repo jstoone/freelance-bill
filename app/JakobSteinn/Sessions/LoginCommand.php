@@ -1,6 +1,6 @@
 <?php namespace JakobSteinn\Sessions;
 
-class SessionsCommand {
+class LoginCommand {
 
 	/**
 	 * @var string

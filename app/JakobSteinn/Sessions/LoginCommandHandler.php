@@ -5,13 +5,13 @@ use Illuminate\Support\Facades\Redirect;
 use Laracasts\Commander\CommandHandler;
 use Laracasts\Flash\Flash;
 
-class SessionsCommandHandler implements CommandHandler
+class LoginCommandHandler implements CommandHandler
 {
 
 	/**
 	 * Handle the login
 	 *
-	 * @param SessionsCommand $command
+	 * @param LoginCommand $command
 	 * @return mixed
 	 */
 	public function handle($command)

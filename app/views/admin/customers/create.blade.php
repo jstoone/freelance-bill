@@ -19,6 +19,11 @@
                 'id'    => 'email',
                 'placeholder' => 'Email'
             ]) }}
+            
+            <label>
+            	{{ Form::checkbox('save_billing', '1', null,  ['id' => 'save_billing']) }}
+            	Save billing information?
+            </label>
 
             {{ Form::submit('Create', ['class' => 'form-control btn btn-success']) }}
 		{{ Form::close() }}
