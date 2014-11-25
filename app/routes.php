@@ -26,10 +26,13 @@ Route::post('admin/login', [
 	'as'    => 'sessions.store'
 ]);
 
-// Product Admin
+// Admin Product
 Route::resource('admin/product', 'AdminProductsController');
 
-// Product Costumer
+// Admin Customer
+Route::resource('admin/customer', 'AdminCustomerController');
+
+// Customer Product
 Route::get('product/{slug}', [
 	'uses'  => 'ProductsController@show',
 	'as'    => 'products.show',

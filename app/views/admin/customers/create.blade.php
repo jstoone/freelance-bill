@@ -2,50 +2,24 @@
 
 @section('content')
 	<div id="admin-products-create" class="col-md-6 col-lg-offset-3">
-		<h1>Create product</h1>
+		<h1>New customer</h1>
 
 		{{ Form::open(['route' => 'admin.customer.store', 'method' => 'post']) }}
 
-			<div class="row">
-	            <div class="col-md-12">
-					{{ Form::label('name', 'Name', ['class' => 'control-label']) }}
-					{{ Form::text('name', null, [
-						'class' => 'form-control',
-						'id'    => 'name',
-						'placeholder' => 'Name'
-					]) }}
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-md-4">
-	                {{ Form::label('price', 'Price', ['class' => 'control-label']) }}
-                    <div class="input-group">
-                        <span class="input-group-addon">$</span>
-                        {{ Form::text('price', null, [
-                            'class' => 'form-control',
-                            'id'    => 'price',
-                            'placeholder' => 'Price'
-                        ]) }}
-                    </div>
-                </div>
-                
-				<div class="col-md-8">
-					{{ Form::label('customer', 'Customer', ['class' => 'control-label']) }}
+			{{ Form::label('name', 'Name', ['class' => 'control-label']) }}
+			{{ Form::text('name', null, [
+				'class' => 'form-control',
+				'id'    => 'name',
+				'placeholder' => 'Name'
+			]) }}
 
-					{{ Form::select('name', [] , null , [
-						'class' => 'form-control',
-						'id'    => 'customer',
-					]) }}
-				</div>
-            </div>
+			{{ Form::label('email', 'Email', ['class' => 'control-label']) }}
+            {{ Form::text('email', null, [
+                'class' => 'form-control',
+                'id'    => 'email',
+                'placeholder' => 'Email'
+            ]) }}
 
-            <div class="row">
-	            <div class="col-md-12">
-	                {{ Form::label('description', 'Description', ['class' => 'control-label']) }}
-	                <textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="Product description"></textarea>
-	            </div>
-            </div>
             {{ Form::submit('Create', ['class' => 'form-control btn btn-success']) }}
 		{{ Form::close() }}
 	</div>
