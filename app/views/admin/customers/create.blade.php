@@ -4,7 +4,7 @@
 	<div id="admin-products-create" class="col-md-6 col-lg-offset-3">
 		<h1>Create product</h1>
 
-		{{ Form::open(['route' => 'admin.product.store', 'method' => 'post']) }}
+		{{ Form::open(['route' => 'admin.customer.store', 'method' => 'post']) }}
 
 			<div class="row">
 	            <div class="col-md-12">

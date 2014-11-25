@@ -7,8 +7,8 @@
   <meta name="publish-key" content="{{Config::get('services.stripe.publish')}}">
   <title>Billing</title>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/main.css"/>
+  <link rel="stylesheet" href="/css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/main.css"/>-+
 </head>
 <body>
   <div class="container">
@@ -18,7 +18,8 @@
 
   <footer>
     @yield('footer')
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/vendor/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/js/vendor/bootstrap.min.js"></script>
   </footer>
 </body>
 </html>
