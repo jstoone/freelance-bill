@@ -19,14 +19,14 @@ class Product extends \Eloquent {
 	 *
 	 * @var string
 	 */
-	protected $table = 'costumer_products';
+	protected $table = 'customer_products';
 
 	/**
 	 * Specify which files are fillable, and protect against Mass Assignment
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['name', 'price', 'description', 'password', 'is_paid'];
+	protected $fillable = ['customer_id', 'name', 'price', 'description', 'password', 'is_paid'];
 
 
 	/**
