@@ -15,7 +15,7 @@ class Customer extends \Eloquent {
 
 	public function products()
 	{
-		$this->hasMany(Product::class);
+		return $this->hasMany(Product::class, 'customer_id', 'id');
 	}
 
 	/**

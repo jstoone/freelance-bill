@@ -27,5 +27,4 @@ class ProductsTableSeeder extends Seeder
 			]);
 		}
 	}
-
 }
