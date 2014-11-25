@@ -1,5 +1,13 @@
 <?php
 
+// Route Model binding
+use JakobSteinn\Products\Product;
+
+Route::bind('slug', function($value, $route)
+{
+	return Product::where('slug', $value)->firstOrFail();
+});
+
 // Root redirect
 Route::get('/', function()
 {
@@ -27,23 +35,49 @@ Route::post('admin/login', [
 ]);
 
 // Admin Product
-Route::resource('admin/product', 'AdminProductsController');
+Route::group(['prefix' => 'admin/product'], function () {
+	Route::get('/', [
+		'uses'  => 'AdminProductsController@index',
+		'as'    => 'admin.products',
+	]);
+	Route::get('show/{slug}', [
+		'uses'  => 'AdminProductsController@show',
+		'as'    => 'admin.products.show',
+	]);
+	Route::get('create', [
+		'uses'  => 'AdminProductsController@create',
+		'as'    => 'admin.products.create',
+	]);
+	Route::get('edit/{slug}', [
+		'uses'  => 'AdminProductsController@edit',
+		'as'    => 'admin.products.edit',
+	]);
+	Route::get('destroy/{slug}', [
+		'uses'  => 'AdminProductsController@destroy',
+		'as'    => 'admin.products.destroy',
+	]);
+});
 
 // Admin Customer
 Route::resource('admin/customer', 'AdminCustomerController');
 
 // Customer Product
 Route::get('product/{slug}', [
-	'uses'  => 'ProductsController@show',
-	'as'    => 'products.show',
+	'uses'  => 'ProductsController@accept',
+	'as'    => 'products.accept',
 ]);
 
-Route::get('product/{slug}/success', [
+Route::get('product/{slug}/login', [
+	'uses'  => 'ProductsController@login',
+	'as'    => 'products.login',
+]);
+
+Route::get('product/{slug}/success/', [
 	'uses'  => 'ProductsController@success',
 	'as'    => 'products.success',
 ]);
 
-Route::get('product/{slug}/pay', [
+Route::get('product/pay/{slug}', [
 	'uses'  => 'ProductsController@pay',
 	'as'    => 'products.pay'
 ]);

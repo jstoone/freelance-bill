@@ -4,7 +4,9 @@
 	<div id="admin-products-create" class="col-md-6 col-lg-offset-3">
 		<h1>Create product</h1>
 
-		{{ Form::open(['route' => 'admin.product.store', 'method' => 'post']) }}
+		@include('layouts.partials.form-errors')
+
+		{{ Form::open(['route' => 'admin.products.store', 'method' => 'post']) }}
 
 			<div class="row">
 	            <div class="col-md-12">
@@ -33,9 +35,10 @@
 				<div class="col-md-8">
 					{{ Form::label('customer', 'Customer', ['class' => 'control-label']) }}
 
-					{{ Form::select('name', $customers , null , [
+					{{ Form::select('customer', $customers , null , [
 						'class' => 'form-control',
 						'id'    => 'customer',
+						'name'  => 'customer_id'
 					]) }}
 				</div>
             </div>

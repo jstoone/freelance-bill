@@ -1,12 +1,38 @@
-<?php 
+<?php
+
+use JakobSteinn\Products\Product;
 
 class ProductsController extends BaseController {
 
-	public function show($slug) {
 
+	function __construct()
+	{
+		$this->beforeFilter('auth.mini', ['only' => 'pay']);
 	}
 
-	public function pay($slug) {
+	public function login(Product $product) {
+		return View::make('products.login', $product->slug);
+	}
+
+	public function verify(Product $product)
+	{
+		if( ! Input::get('verifier') == $product->passwordSnippet())
+		{
+			Flash::message('Wrong password, try again.');
+			return Redirect::back()->withInput();
+		}
+
+		Session::put('verified', true);
+
+		Flash::message('Please read the information below.');
+		return Redirect::route('products.accept', $product->slug);
+	}
+
+	public function accept(Product $product) {
+		return View::make('products.accept', compact('product'));
+	}
+
+	public function pay(Product $product) {
 		$billing = App::make('JakobSteinn\Billing\BillingInterface');
 
 		$billing->charge([
@@ -14,10 +40,10 @@ class ProductsController extends BaseController {
 			'token' => Input::get('stripe-token')
 		]);
 
-		dd('Charge was successful!');
+		return Redirect::route('products.success');
 	}
 
-	public function success($slug) {
-
+	public function success(Product $product) {
+		dd('Charge was successful!');
 	}
 }

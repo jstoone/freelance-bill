@@ -30,17 +30,27 @@
             <td>
                 {{ $product->description }}
             </td>
-            <td align="center">
+            <td>
                 @if($product->is_paid)
-                    <span class="label label-success">Payed</span>
+                    <span class="label label-success" style="display: block;">Payed</span>
                 @else
-                    <span class="label label-warning">Pending</span>
+                    <span class="label label-warning" style="display: block;">Pending</span>
                 @endif
             </td>
             <td>
-				<a class="btn btn-xs btn-primary" href="{{ URL::route('admin.product.edit', $product->slug) }}">Edit</a>
-                <a class="btn btn-xs btn-danger" href="{{ URL::route('admin.product.destroy', $product->slug) }}">Delete</a>
+				<a class="btn btn-xs btn-primary" href="{{ URL::route('admin.products.edit', $product->slug) }}">Edit</a>
+                <a class="btn btn-xs btn-danger" href="{{ URL::route('admin.products.destroy', $product->slug) }}">Delete</a>
             </td>
+		</tr>
+		<tr>
+			<td></td>
+			<td colspan="6">
+				<em>Share:
+				<a href="{{ URL::route('products.login', $product->slug) }}">
+					{{ URL::route('products.login', $product->slug) }}
+				</a>
+				</em>
+			</td>
 		</tr>
 	@endforeach
 	</tbody>

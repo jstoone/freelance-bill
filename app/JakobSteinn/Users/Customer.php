@@ -1,9 +1,12 @@
 <?php namespace JakobSteinn\Users;
 
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
 use Illuminate\Support\Str;
 use JakobSteinn\Products\Product;
 
 class Customer extends \Eloquent {
+
+	use SoftDeletingTrait;
 
 	/**
 	 * Specify which files are fillable, and protect against Mass Assignment

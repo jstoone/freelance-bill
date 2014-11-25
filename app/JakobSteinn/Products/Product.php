@@ -1,5 +1,6 @@
 <?php namespace JakobSteinn\Products;
 
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
 use Illuminate\Support\Str;
 use JakobSteinn\Users\Customer;
 use Laracasts\Presenter\PresentableTrait;
@@ -7,6 +8,7 @@ use Laracasts\Presenter\PresentableTrait;
 class Product extends \Eloquent {
 
 	use PresentableTrait;
+	use SoftDeletingTrait;
 
 	/**
 	 * Path to view presenter class
@@ -54,9 +56,15 @@ class Product extends \Eloquent {
 		$this->attributes['price'] = $value * 100;
 	}
 
+	public static function make($name, $price, $customer_id, $description)
+	{
+		return new static(compact('name', 'price', 'customer_id', 'description'));
+	}
+
 	private function generateUniqueSlug($value) {
 		$slug = Str::slug($value);
         $slugs = static::whereRaw("slug REGEXP '^{$slug}(-[0-9]*)?$'");
+
         if ($slugs->count() === 0)
                 return $slug;
 
