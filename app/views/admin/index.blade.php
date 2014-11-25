@@ -31,16 +31,16 @@
 					<a href="{{ URL::route('admin.product.edit', $product->slug) }}"></a>
 				</td>
 				<td>
-                    {{$product->price / 100}} kr.
+					{{ $product->present()->price }}
                 </td>
                 <td>
                     {{$product->description}}
                 </td>
                 <td>
                     @if($product->is_paid)
-                        <button class="btn btn-success">Payed!</button>
+                        <button class="btn btn-success btn-sm">Payed!</button>
                     @else
-						<button class="btn btn-warning">Not payed</button>
+						<button class="btn btn-warning btn-sm">Not payed</button>
                     @endif
                 </td>
 			</tr>

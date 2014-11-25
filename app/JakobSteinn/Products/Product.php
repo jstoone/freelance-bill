@@ -1,6 +1,12 @@
 <?php namespace JakobSteinn\Products;
 
+use Laracasts\Presenter\PresentableTrait;
+
 class Product extends \Eloquent {
+
+	use PresentableTrait;
+
+	protected $presenter = 'JakobSteinn\Products\ProductPresenter';
 
 	/**
 	 * Specify which table to use
