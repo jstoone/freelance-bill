@@ -1,12 +1,33 @@
 <?php
 
+// Root redirect
 Route::get('/', function()
 {
 	return Redirect::away('http://beta.jakobsteinn.com');
 });
 
+// Admin area
+Route::get('admin', [
+	'uses'  => 'AdminController@index',
+    'as'    => 'admin.index'
+]);
+
+// Admin Sessions
+Route::get('admin/login', [
+	'uses'  => 'SessionsController@create',
+	'as'    => 'sessions.create'
+]);
+Route::get('admin/logout', [
+	'uses'  => 'SessionsController@destroy',
+	'as'    => 'sessions.destroy'
+]);
+Route::post('admin/login', [
+	'uses'  => 'SessionsController@store',
+	'as'    => 'sessions.store'
+]);
+
 // Product Admin
-Route::resoruce('admin/product', 'AdminProductsController')
+Route::resource('admin/product', 'AdminProductsController');
 
 // Product Costumer
 Route::get('product/{slug}', [
@@ -22,9 +43,4 @@ Route::get('product/{slug}/success', [
 Route::get('product/{slug}/pay', [
 	'uses'  => 'ProductsController@pay',
 	'as'    => 'products.pay'
-]);
-
-// Sessions
-Route::resource('sessions', 'SessionsController', [
-	'only' => ['create', 'store', 'destroy']
 ]);

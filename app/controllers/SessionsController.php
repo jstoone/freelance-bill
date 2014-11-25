@@ -5,6 +5,11 @@ use JakobSteinn\Sessions\LoginSanitizer;
 
 class SessionsController extends \BaseController {
 
+	public function __construct()
+	{
+		$this->beforeFilter('guest');
+	}
+
 	/**
 	 * Show the form for logging in.
 	 * GET /sessions/create

@@ -19,6 +19,8 @@ class CreateProductsTable extends Migration {
 			$table->integer('price');
 			$table->text('description');
 			$table->string('password');
+			$table->boolean('is_paid');
+			$table->timestamps();
 		});
 	}
 
