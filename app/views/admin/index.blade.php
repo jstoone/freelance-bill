@@ -13,7 +13,7 @@
 			<a class="btn btn-sm btn-success" href="{{ URL::route('admin.customer.create') }}">New Costumer</a>
 		</p>
 		<div class="well">
-			@include('...admin.customers.partials.list', compact('customers'))
+			@include('admin.customers.partials.list', compact('customers'))
 		</div>
 	</div>
 @stop

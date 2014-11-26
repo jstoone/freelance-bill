@@ -7,7 +7,7 @@ class AdminController extends BaseController {
 
 	public function index() {
 		$products = Product::limit(10)->orderBy('id', 'desc')->get();
-		$customers = Customer::limit(10)->orderBy('id', 'desc')->get();
+		$customers = Customer::with('products')->limit(10)->orderBy('id', 'desc')->get();
 
 		return View::make('admin.index', compact('products', 'customers'));
 	}
