@@ -141,7 +141,7 @@ Route::post('product/bill/{slug}', [
 	'as'    => 'products.bill'
 ]);
 
-Route::get('{page}', [
+Route::get('/{page}', [
 	'uses'  => 'PagesController@show',
 	'as'    => 'page'
 ]);

@@ -1,10 +1,10 @@
 <?php 
 
-class PagesController {
+class PagesController extends BaseController {
 
 	public function show($page)
 	{
-		return View::make('pages.'$page);
+		return View::make('pages.'.$page);
 	}
 
 }
