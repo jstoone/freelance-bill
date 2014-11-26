@@ -11,6 +11,7 @@
 |
 */
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Laracasts\Validation\FormValidationException;
 
 ClassLoader::addDirectories(array(
@@ -57,6 +58,12 @@ App::error(function(FormValidationException $exception, $code)
 	Flash::error('Please see errors below.');
 
 	return Redirect::back()->withInput()->withErrors($exception->getErrors());
+});
+
+App::error(function(ModelNotFoundException $exception, $code)
+{
+	Flash::error('Nothing like that exists, sorry.');
+	return Redirect::route('page', '404');
 });
 
 /*
