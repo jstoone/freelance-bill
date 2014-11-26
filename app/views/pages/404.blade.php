@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	<div id="page-404" class="col-md-6 col-md-offset-3 text-center" style="margin-top: 150px;">
+	<div id="page-404" class="col-md-6 col-md-offset-3 text-center" style="margin-top: 5%;">
 		<h1 style="font-size: 50px;">Hawt <strong>(404)</strong> Damn</h1>
 		<br/>
 		<div class="sign">

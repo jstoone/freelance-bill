@@ -50,6 +50,11 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 
 App::error(function(Exception $exception, $code)
 {
+	if( ! App::isLocal())
+	{
+		Flash::error('Something generic-faultiness happened.');
+		return Redirect::route('page', '404');
+	}
 	Log::error($exception);
 });
 
