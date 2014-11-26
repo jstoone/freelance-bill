@@ -29,7 +29,7 @@ Route::get('/', function()
 // Admin area
 Route::get('admin', [
 	'uses'  => 'AdminController@index',
-    'as'    => 'admin.index'
+    'as'    => 'admin'
 ]);
 
 // Admin Sessions

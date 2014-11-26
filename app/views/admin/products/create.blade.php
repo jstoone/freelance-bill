@@ -3,6 +3,7 @@
 @section('content')
 	<div id="admin-products-create" class="col-md-6 col-lg-offset-3">
 		<h1>Create product</h1>
+		<hr/>
 
 		@include('layouts.partials.form-errors')
 
@@ -56,6 +57,8 @@
 	                <textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="Product description"></textarea>
 	            </div>
             </div>
+
+            <hr/>
             {{ Form::submit('Create', ['class' => 'form-control btn btn-success']) }}
 		{{ Form::close() }}
 	</div>

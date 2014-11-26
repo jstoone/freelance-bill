@@ -2,7 +2,7 @@
 
 use Laracasts\Validation\FormValidator;
 
-class CreateCustomerForm extends FormValidator {
+class CustomerForm extends FormValidator {
 
 	/**
 	 * Customer creation form validation rules

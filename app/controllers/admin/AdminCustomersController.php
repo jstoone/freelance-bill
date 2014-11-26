@@ -2,18 +2,20 @@
 
 use Illuminate\Support\Facades\Input;
 use JakobSteinn\Users\CreateCustomerCommand;
-use JakobSteinn\Users\CreateCustomerForm;
+use JakobSteinn\Users\CustomerForm;
+use JakobSteinn\Users\Customer;
 use JakobSteinn\Users\CustomerSanitizer;
+use JakobSteinn\Users\UpdateCustomerCommand;
 
 class AdminCustomersController extends \BaseController
 {
 
 	/**
-	 * @var CreateCustomerForm
+	 * @var CustomerForm
 	 */
 	private $customerForm;
 
-	function __construct(CreateCustomerForm $customerForm)
+	function __construct(CustomerForm $customerForm)
 	{
 		$this->customerForm = $customerForm;
 	}
@@ -59,7 +61,7 @@ class AdminCustomersController extends \BaseController
 			return Redirect::back()->withInput();
 		}
 
-		Flash::success('YES! We successfully created customer: '. $customer->name);
+		Flash::success('YES! We successfully created customer: ' . $customer->name);
 		return Redirect::route('admin.index');
 	}
 
@@ -67,10 +69,10 @@ class AdminCustomersController extends \BaseController
 	 * Display the specified resource.
 	 * GET /admincustomer/{id}
 	 *
-	 * @param  int $id
+	 * @param  Customer $customer
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Customer $customer)
 	{
 		//
 	}
@@ -79,34 +81,50 @@ class AdminCustomersController extends \BaseController
 	 * Show the form for editing the specified resource.
 	 * GET /admincustomer/{id}/edit
 	 *
-	 * @param  int $id
+	 * @param  Customer $customer
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit(Customer $customer)
 	{
-		//
+		return View::make('admin.customers.edit', compact('customer'));
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 * PUT /admincustomer/{id}
 	 *
-	 * @param  int $id
+	 * @param  Customer $customer
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Customer $customer)
 	{
-		//
+		$input = Input::all();
+		$input['customer'] = $customer;
+
+		$this->customerForm->validate($input);
+
+		$isUpdateOk = $this->execute(UpdateCustomerCommand::class, $input, [
+			CustomerSanitizer::class
+		]);
+
+		if( ! $isUpdateOk)
+		{
+			Flash::error('Update failed, please try again.');
+			return Redirect::back()->withInput();
+		}
+
+		Flash::success('Customer updated successfully!');
+		return Redirect::route('admin');
 	}
 
 	/**
 	 * Remove the specified resource from storage.
 	 * DELETE /admincustomer/{id}
 	 *
-	 * @param  int $id
+	 * @param Customer $customer
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(Customer $customer)
 	{
 		//
 	}

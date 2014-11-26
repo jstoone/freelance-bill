@@ -6,6 +6,7 @@
 		<p>
 			<a class="btn btn-sm btn-success" href="{{ URL::route('admin.products.create') }}">New product</a>
 			<a class="btn btn-sm btn-success" href="{{ URL::route('admin.customers.create') }}">New Costumer</a>
+			<a class="btn btn-sm btn-primary" href="{{ URL::route('admin') }}">Back</a>
 		</p>
 		@include('admin.products.partials.list', compact('products'));
 	</div>

@@ -3,6 +3,7 @@
 @section('content')
 	<div id="admin-products-create" class="col-md-6 col-lg-offset-3">
 		<h1>New customer</h1>
+		<hr/>
 
 		{{ Form::open(['route' => 'admin.customers.store', 'method' => 'post']) }}
 
@@ -20,6 +21,7 @@
                 'placeholder' => 'Email'
             ]) }}
 
+			<hr/>
             {{ Form::submit('Create', ['class' => 'form-control btn btn-success']) }}
 		{{ Form::close() }}
 	</div>

@@ -2,8 +2,8 @@
 
 @section('content')
 	<div id="admin-products-create" class="col-md-6 col-lg-offset-3">
-		<h1>Create product</h1>
-
+		<h1>Edit product</h1>
+		<hr/>
 		@include('layouts.partials.form-errors')
 		{{ Form::model($product, ['route' => ['admin.products.update', $product->id], 'method' => 'post']) }}
 			<div class="row">
@@ -63,7 +63,6 @@
             </div>
 
             <hr/>
-
             {{ Form::submit('Update', ['class' => 'form-control btn btn-success']) }}
 		{{ Form::close() }}
 	</div>

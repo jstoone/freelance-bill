@@ -3,7 +3,6 @@
 @section('content')
 	<div id="products-accept" class="col-md-6 col-md-offset-3">
 		<h1>Product details</h1>
-
 		<hr/>
 
 		<h2>{{ $product->name }} <small>{{ $product->present()->price }}</small></h2>

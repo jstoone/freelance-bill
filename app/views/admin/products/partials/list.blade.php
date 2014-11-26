@@ -38,14 +38,18 @@
                 @endif
             </td>
             <td>
-				<a class="btn btn-xs btn-primary" href="{{ URL::route('admin.products.edit', $product->id) }}">Edit</a>
-                <a class="btn btn-xs btn-danger" href="{{ URL::route('admin.products.destroy', $product->id) }}">Delete</a>
+				<a class="btn btn-xs btn-primary" href="{{ URL::route('admin.products.edit', $product->id) }}">
+					Edit
+				</a>
+                <a class="btn btn-xs btn-danger" href="{{ URL::route('admin.products.destroy', $product->id) }}">
+                    Delete
+                </a>
             </td>
 		</tr>
 		<tr>
 			<td></td>
 			<td colspan="6">
-				<em>Share:
+				<em><span class="glyphicon glyphicon-share"></span>:
 				<a href="{{ URL::route('products.auth', $product->slug) }}">
 					{{ URL::route('products.auth', $product->slug) }}
 				</a>

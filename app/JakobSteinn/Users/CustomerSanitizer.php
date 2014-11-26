@@ -4,14 +4,14 @@ use Laracasts\Commander\CommandBus;
 
 class CustomerSanitizer implements CommandBus {
 	/**
-	 * @var CreateCustomerForm
+	 * @var CustomerForm
 	 */
 	private $customerForm;
 
 	/**
-	 * @param CreateCustomerForm $customerForm
+	 * @param CustomerForm $customerForm
 	 */
-	function __construct(CreateCustomerForm $customerForm)
+	function __construct(CustomerForm $customerForm)
 	{
 		$this->customerForm = $customerForm;
 	}
