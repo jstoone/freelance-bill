@@ -7,8 +7,8 @@ class UsersTableSeeder extends Seeder {
 	public function run()
 	{
 		User::create([
-			'username' => 'jakobsteinn',
-			'password' => Hash::make('lege!'),
+			'username' => getenv('ADMIN_USERNAME'),
+			'password' => Hash::make(getenv('ADMIN_PASSWORD')),
 		]);
 	}
 
