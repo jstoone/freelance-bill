@@ -7,12 +7,15 @@ Route::when('admin', 'auth');
 // Route Model binding
 use JakobSteinn\Products\Product;
 use JakobSteinn\Users\Customer;
-Route::bind('product', function($productId, $route)
+Route::bind('product', function($productId)
 {
 	return Product::findOrFail($productId);
 });
-
-Route::bind('customer', function($customerId, $route)
+Route::bind('slug', function($slug)
+{
+	return Product::where('slug', $slug)->firstOrFail();
+});
+Route::bind('customer', function($customerId)
 {
 	return Customer::findOrFail($customerId);
 });

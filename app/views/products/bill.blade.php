@@ -4,15 +4,15 @@
 @section('content')
 <div id="products-bill" class="col-md-6 col-md-offset-3">
 
-    <h1>{{ $product->name }}</h1>
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3>Payment details</h3>
+            <h3>Payment details for:</h3>
+            <h4>{{ $product->name }}</h4>
         </div>
         <div class="panel-body">
             <h4>Total price: <span class="pull-right">{{ $product->present()->price }}</span></h4>
             <hr/>
-            {{ Form::open(['route' => ['products.bill', $product->id], 'id' => 'billing-form']) }}
+            {{ Form::open(['route' => ['products.bill', $product->slug], 'id' => 'billing-form']) }}
                 <div class="form-group">
                     <div class="payment-errors alert alert-danger" style="display: none;"></div>
 

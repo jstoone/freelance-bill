@@ -70,6 +70,28 @@ class Product extends \Eloquent {
 	}
 
 	/**
+	 * Query products that are paid
+	 *
+	 * @param $query
+	 * @return mixed
+	 */
+	public function scopePaid($query)
+	{
+		return $query->where('is_paid', true);
+	}
+
+	/**
+	 * Query products that are not paid
+	 *
+	 * @param $query
+	 * @return mixed
+	 */
+	public function scopeNotPaid($query)
+	{
+		return $query->where('is_paid', false);
+	}
+
+	/**
 	 * Always hash passwords
 	 *
 	 * @param string $value

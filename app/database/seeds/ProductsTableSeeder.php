@@ -14,13 +14,13 @@ class ProductsTableSeeder extends Seeder
 		$customers = Customer::lists('id');
 
 		foreach (range(1, 30) as $index) {
-			$name = $faker->sentence(3);
+			$name = $faker->realText(20);
 
 			Product::create([
 				'customer_id'  => $faker->randomElement($customers),
 				'name'          => $name,
 				'price'         => $faker->numberBetween(100, 5000),
-				'description'   => $faker->paragraph(3),
+				'description'   => $faker->realText(),
 				'password'      => 'secret',
 			    'is_paid'       => $faker->boolean(25),
 			    'slug'          => $name,

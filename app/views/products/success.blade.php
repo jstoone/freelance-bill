@@ -14,7 +14,7 @@
 			</div>
 			<div class="col-md-6">
 				<p class="text-right">
-					Date: {{ date('l jS \of F Y h:i:s A') }} <br/>
+					{{ date('jS F Y H:i') }} <br/>
 					Reciept #: {{ $product->id }}
 				</p>
 			</div>

@@ -1,4 +1,4 @@
-<table class="table table-striped table-hover">
+<table class="table table-hover">
 	<colgroup>
 		<col width="5%"/>
 		<col width="20%"/>
@@ -46,8 +46,8 @@
 			<td></td>
 			<td colspan="6">
 				<em>Share:
-				<a href="{{ URL::route('products.auth', $product->id) }}">
-					{{ URL::route('products.auth', $product->id) }}
+				<a href="{{ URL::route('products.auth', $product->slug) }}">
+					{{ URL::route('products.auth', $product->slug) }}
 				</a>
 				</em>
 			</td>
