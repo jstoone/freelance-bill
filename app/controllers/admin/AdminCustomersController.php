@@ -5,7 +5,7 @@ use JakobSteinn\Users\CreateCustomerCommand;
 use JakobSteinn\Users\CreateCustomerForm;
 use JakobSteinn\Users\CustomerSanitizer;
 
-class AdminCustomerController extends \BaseController
+class AdminCustomersController extends \BaseController
 {
 
 	/**
