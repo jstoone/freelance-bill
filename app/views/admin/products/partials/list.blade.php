@@ -46,8 +46,8 @@
 			<td></td>
 			<td colspan="6">
 				<em>Share:
-				<a href="{{ URL::route('products.login', $product->slug) }}">
-					{{ URL::route('products.login', $product->slug) }}
+				<a href="{{ URL::route('products.auth', $product->slug) }}">
+					{{ URL::route('products.auth', $product->slug) }}
 				</a>
 				</em>
 			</td>

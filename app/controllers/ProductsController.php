@@ -1,22 +1,30 @@
 <?php
 
+use JakobSteinn\Billing\BillingInterface;
 use JakobSteinn\Products\Product;
 
 class ProductsController extends BaseController {
 
 
-	function __construct()
+	/**
+	 * @var BillingInterface
+	 */
+	private $billing;
+
+	function __construct(BillingInterface $billing)
 	{
-		$this->beforeFilter('auth.mini', ['only' => 'pay']);
+//		$this->beforeFilter('auth.mini', ['only' => 'pay']);
+		$this->billing = $billing;
 	}
 
-	public function login(Product $product) {
-		return View::make('products.login', $product->slug);
+	public function auth(Product $product) {
+
+		return View::make('products.auth', compact('product', 'url'));
 	}
 
 	public function verify(Product $product)
 	{
-		if( ! Input::get('verifier') == $product->passwordSnippet())
+		if( ! Hash::check(Input::get('password'), $product->password))
 		{
 			Flash::message('Wrong password, try again.');
 			return Redirect::back()->withInput();
@@ -32,18 +40,36 @@ class ProductsController extends BaseController {
 		return View::make('products.accept', compact('product'));
 	}
 
-	public function pay(Product $product) {
-		$billing = App::make('JakobSteinn\Billing\BillingInterface');
+	public function pay(Product $product)
+	{
+		if($product->is_paid)
+		{
+			Flash::message('This product has already been paid for.');
+			return Redirect::route('products.accept', $product->slug);
+		}
 
-		$billing->charge([
-			'email' => Input::get('email'),
-			'token' => Input::get('stripe-token')
+		return View::make('products.bill', compact('product'));
+	}
+
+	public function bill(Product $product) {
+		$billing = $this->billing->charge([
+			'token' => Input::get('stripe-token'),
+			'product' => $product,
 		]);
 
-		return Redirect::route('products.success');
+		if( ! $billing->paid )
+		{
+			Flash::error("Something went wrong, please try again.");
+			return Redirect::back();
+		}
+
+		$product->is_paid = true;
+		$product->save();
+
+		return Redirect::route('products.success', $product->slug);
 	}
 
 	public function success(Product $product) {
-		dd('Charge was successful!');
+		return View::make('products.success', compact('product'));
 	}
 }

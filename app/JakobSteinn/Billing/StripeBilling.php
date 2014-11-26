@@ -1,6 +1,8 @@
 <?php namespace JakobSteinn\Billing;
 
+use Doctrine\Common\Proxy\Exception\InvalidArgumentException;
 use Illuminate\Support\Facades\Config;
+use JakobSteinn\Products\Product;
 use Stripe;
 
 class StripeBilling implements BillingInterface {
@@ -12,11 +14,14 @@ class StripeBilling implements BillingInterface {
 
 	public function charge(array $data)
 	{
+		if( ! $product = $data['product'])
+			throw new InvalidArgumentException('No product found');
+
 		try {
 			return \Stripe_Charge::create([
-				'amount' => 1000,
+				'amount' => $product->price,
 				'currency' => 'DKK',
-				'description' => $data['email'],
+				'description' => $product->name,
 				'card' => $data['token']
 			]);
 		} catch(\Stripe_CardError $e)

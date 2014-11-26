@@ -48,9 +48,17 @@ Route::group(['prefix' => 'admin/product'], function () {
 		'uses'  => 'AdminProductsController@create',
 		'as'    => 'admin.products.create',
 	]);
+	Route::post('store/{slug}', [
+		'uses'  => 'AdminProductsController@store',
+		'as'    => 'admin.products.store',
+	]);
 	Route::get('edit/{slug}', [
 		'uses'  => 'AdminProductsController@edit',
 		'as'    => 'admin.products.edit',
+	]);
+	Route::get('update/{slug}', [
+		'uses'  => 'AdminProductsController@update',
+		'as'    => 'admin.products.update',
 	]);
 	Route::get('destroy/{slug}', [
 		'uses'  => 'AdminProductsController@destroy',
@@ -62,14 +70,19 @@ Route::group(['prefix' => 'admin/product'], function () {
 Route::resource('admin/customer', 'AdminCustomerController');
 
 // Customer Product
+Route::get('product/{slug}/auth', [
+	'uses'  => 'ProductsController@auth',
+	'as'    => 'products.auth',
+]);
+
+Route::post('product/verify/{slug}', [
+	'uses'  => 'ProductsController@verify',
+	'as'    => 'products.verify',
+]);
+
 Route::get('product/{slug}', [
 	'uses'  => 'ProductsController@accept',
 	'as'    => 'products.accept',
-]);
-
-Route::get('product/{slug}/login', [
-	'uses'  => 'ProductsController@login',
-	'as'    => 'products.login',
 ]);
 
 Route::get('product/{slug}/success/', [
@@ -80,4 +93,9 @@ Route::get('product/{slug}/success/', [
 Route::get('product/pay/{slug}', [
 	'uses'  => 'ProductsController@pay',
 	'as'    => 'products.pay'
+]);
+
+Route::post('product/bill/{slug}', [
+	'uses'  => 'ProductsController@bill',
+	'as'    => 'products.bill'
 ]);

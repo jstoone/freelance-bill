@@ -11,6 +11,13 @@ class Product extends \Eloquent {
 	use SoftDeletingTrait;
 
 	/**
+	 * Don't hide simple password
+	 *
+	 * @var array
+	 */
+	protected $hidden = [];
+
+	/**
 	 * Path to view presenter class
 	 *
 	 * @var string
@@ -41,6 +48,11 @@ class Product extends \Eloquent {
 	}
 
 
+	/**
+	 * Generate unique slug
+	 *
+	 * @param $value
+	 */
 	public function setSlugAttribute($value)
 	{
 		$this->attributes['slug'] = $this->generateUniqueSlug($value);
@@ -56,11 +68,22 @@ class Product extends \Eloquent {
 		$this->attributes['price'] = $value * 100;
 	}
 
+	/**
+	 * @param $name
+	 * @param $price
+	 * @param $customer_id
+	 * @param $description
+	 * @return static
+	 */
 	public static function make($name, $price, $customer_id, $description)
 	{
 		return new static(compact('name', 'price', 'customer_id', 'description'));
 	}
 
+	/**
+	 * @param $value
+	 * @return string
+	 */
 	private function generateUniqueSlug($value) {
 		$slug = Str::slug($value);
         $slugs = static::whereRaw("slug REGEXP '^{$slug}(-[0-9]*)?$'");
