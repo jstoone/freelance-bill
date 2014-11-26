@@ -4,7 +4,7 @@
 	<div id="admin-products-create" class="col-md-6 col-lg-offset-3">
 		<h1>New customer</h1>
 
-		{{ Form::open(['route' => 'admin.customer.store', 'method' => 'post']) }}
+		{{ Form::open(['route' => 'admin.customers.store', 'method' => 'post']) }}
 
 			{{ Form::label('name', 'Name', ['class' => 'control-label']) }}
 			{{ Form::text('name', null, [

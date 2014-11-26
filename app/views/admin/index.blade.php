@@ -10,7 +10,7 @@
 
 		<h1>Customers <small>10 most recent</small></h1>
 		<p>
-			<a class="btn btn-sm btn-success" href="{{ URL::route('admin.customer.create') }}">New Costumer</a>
+			<a class="btn btn-sm btn-success" href="{{ URL::route('admin.customers.create') }}">New Costumer</a>
 		</p>
 		<div class="well">
 			@include('admin.customers.partials.list', compact('customers'))

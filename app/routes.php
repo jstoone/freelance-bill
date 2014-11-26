@@ -6,10 +6,14 @@ Route::when('admin', 'auth');
 
 // Route Model binding
 use JakobSteinn\Products\Product;
-
-Route::bind('slug', function($value, $route)
+Route::bind('product', function($value, $route)
 {
 	return Product::where('slug', $value)->firstOrFail();
+});
+
+Route::bind('customer', function($value, $route)
+{
+	return Customer::where('id', $value)->firstOrFail();
 });
 
 // Root redirect
@@ -44,7 +48,7 @@ Route::group(['prefix' => 'admin/product'], function () {
 		'uses'  => 'AdminProductsController@index',
 		'as'    => 'admin.products',
 	]);
-	Route::get('show/{slug}', [
+	Route::get('show/{product}', [
 		'uses'  => 'AdminProductsController@show',
 		'as'    => 'admin.products.show',
 	]);
@@ -56,22 +60,51 @@ Route::group(['prefix' => 'admin/product'], function () {
 		'uses'  => 'AdminProductsController@store',
 		'as'    => 'admin.products.store',
 	]);
-	Route::get('edit/{slug}', [
+	Route::get('edit/{product}', [
 		'uses'  => 'AdminProductsController@edit',
 		'as'    => 'admin.products.edit',
 	]);
-	Route::post('update/{slug}', [
+	Route::post('update/{product}', [
 		'uses'  => 'AdminProductsController@update',
 		'as'    => 'admin.products.update',
 	]);
-	Route::get('destroy/{slug}', [
+	Route::get('destroy/{product}', [
 		'uses'  => 'AdminProductsController@destroy',
 		'as'    => 'admin.products.destroy',
 	]);
 });
 
 // Admin Customer
-Route::resource('admin/customer', 'AdminCustomerController');
+Route::group(['prefix' => 'admin/customer'], function () {
+	Route::get('/', [
+		'uses'  => 'AdminCustomersController@index',
+		'as'    => 'admin.customers',
+	]);
+	Route::get('show/{customer}', [
+		'uses'  => 'AdminCustomersController@show',
+		'as'    => 'admin.customers.show',
+	]);
+	Route::get('create', [
+		'uses'  => 'AdminCustomersController@create',
+		'as'    => 'admin.customers.create',
+	]);
+	Route::post('store', [
+		'uses'  => 'AdminCustomersController@store',
+		'as'    => 'admin.customers.store',
+	]);
+	Route::get('edit/{customer}', [
+		'uses'  => 'AdminCustomersController@edit',
+		'as'    => 'admin.customers.edit',
+	]);
+	Route::post('update/{customer}', [
+		'uses'  => 'AdminCustomersController@update',
+		'as'    => 'admin.customers.update',
+	]);
+	Route::get('destroy/{customer}', [
+		'uses'  => 'AdminCustomersController@destroy',
+		'as'    => 'admin.customers.destroy',
+	]);
+});
 
 // Customer Product
 Route::get('product/{slug}/auth', [
