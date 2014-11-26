@@ -1,10 +1,16 @@
 {
-	"authors": {
-	  "name": "Jakob Steinn",
-	  "email": "jakob.sturluson@gmail.com",
-	  "homepage": "http://jakobsteinn.com",
-	  "role": "Programmer"
-	},
+	"authors": [
+	  {
+		"name": "Taylor Otwell",
+		"email": "taylorotwell@gmail.com",
+	  },
+	  {
+		"name": "Jakob Steinn",
+		"email": "jakob.sturluson@gmail.com",
+		"homepage": "http://jakobsteinn.com",
+		"role": "Programmer"
+	  }
+	],
 	"name": "laravel/laravel",
 	"description": "The Laravel Framework.",
 	"keywords": ["framework", "laravel"],
