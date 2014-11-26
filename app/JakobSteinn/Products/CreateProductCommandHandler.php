@@ -19,7 +19,7 @@ class CreateProductCommandHandler implements CommandHandler {
 			$command->price,
 			$command->description,
 			$command->password,
-			$command->slug,
+			$command->slug
 		);
 
 		return Customer::find($command->customer_id)
