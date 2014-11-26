@@ -28,7 +28,9 @@ class AdminCustomersController extends \BaseController
 	 */
 	public function index()
 	{
-		//
+		$customers = Customer::all();
+
+		return View::make('admin.customers.index', compact('customers'));
 	}
 
 	/**
@@ -126,7 +128,10 @@ class AdminCustomersController extends \BaseController
 	 */
 	public function destroy(Customer $customer)
 	{
-		//
+		$customer->delete();
+
+		Flash::success('Customer successfully deleted.');
+		return Redirect::back();
 	}
 
 }
