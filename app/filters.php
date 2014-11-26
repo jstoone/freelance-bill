@@ -71,7 +71,7 @@ Route::filter('auth.mini', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::route('admin.index');
+	if (Auth::check()) return Redirect::route('admin');
 });
 
 /*

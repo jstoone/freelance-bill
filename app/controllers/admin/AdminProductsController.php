@@ -70,7 +70,7 @@ class AdminProductsController extends \BaseController
 		}
 
 		Flash::success('Yay! Created new product: ' . $product->name);
-		return Redirect::route('admin.index');
+		return Redirect::route('admin');
 	}
 
 	/**
@@ -123,7 +123,7 @@ class AdminProductsController extends \BaseController
 		}
 
 		Flash::success('Yay! Created new product: ' . $product->name);
-		return Redirect::route('admin.index');
+		return Redirect::route('admin');
 	}
 
 	/**

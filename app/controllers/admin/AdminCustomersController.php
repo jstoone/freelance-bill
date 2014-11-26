@@ -64,7 +64,7 @@ class AdminCustomersController extends \BaseController
 		}
 
 		Flash::success('YES! We successfully created customer: ' . $customer->name);
-		return Redirect::route('admin.index');
+		return Redirect::route('admin');
 	}
 
 	/**
