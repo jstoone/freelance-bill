@@ -23,7 +23,7 @@ Route::bind('customer', function($customerId)
 // Root redirect
 Route::get('/', function()
 {
-	return Redirect::away('http://beta.jakobsteinn.com');
+	return Redirect::away(getenv('ROOT_REDIRECT_URL') ?: 'https://github.com/jstoone/freelance-bill');
 });
 
 // Admin area

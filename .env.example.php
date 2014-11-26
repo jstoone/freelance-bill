@@ -5,5 +5,6 @@ return [
 	'DB_USER'               => '[database_user]',
 	'DB_PASS'               => '[database_password]',
 	'DB_NAME'               => '[database_name]',
+	'ROOT_REDIRECT_URL'     => '[http://example-root.com]',
 ];
 
