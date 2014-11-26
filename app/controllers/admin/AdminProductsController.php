@@ -4,6 +4,7 @@ use JakobSteinn\Products\CreateProductCommand;
 use JakobSteinn\Products\Product;
 use JakobSteinn\Products\ProductForm;
 use JakobSteinn\Products\ProductSanitizer;
+use JakobSteinn\Products\UpdateProductCommand;
 use JakobSteinn\Users\Customer;
 
 class AdminProductsController extends \BaseController
@@ -105,7 +106,24 @@ class AdminProductsController extends \BaseController
 	 */
 	public function update(Product $product)
 	{
-		//
+		$this->productForm->validate(Input::all());
+
+		$input = Input::all();
+		$input['product'] = $product;
+
+
+		$isUpdateOkay = $this->execute(UpdateProductCommand::class, $input, [
+			ProductSanitizer::class
+		]);
+
+		if ( ! $isUpdateOkay)
+		{
+			Flash::error('Somthing went wrong, no product created.');
+			return Redirect::back()->withInput();
+		}
+
+		Flash::success('Yay! Created new product: ' . $product->name);
+		return Redirect::route('admin.index');
 	}
 
 	/**

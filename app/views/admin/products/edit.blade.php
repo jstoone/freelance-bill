@@ -50,8 +50,14 @@
                         'placeholder' => 'Fill in to change'
                     ]) }}
 
+                    {{ Form::label('slug', 'Slug', ['class' => 'control-label']) }}
+                    {{ Form::text('slug', null, [
+                        'class' => 'form-control',
+                        'id'    => 'slug',
+                    ]) }}
+
                     {{ Form::label('description', 'Description', ['class' => 'control-label']) }}
-                    <textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="Product description"></textarea>
+                    <textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="Product description">{{ $product->description }}</textarea>
 
 	            </div>
             </div>

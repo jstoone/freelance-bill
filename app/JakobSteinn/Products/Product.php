@@ -1,6 +1,7 @@
 <?php namespace JakobSteinn\Products;
 
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use JakobSteinn\Users\Customer;
 use Laracasts\Presenter\PresentableTrait;
@@ -69,6 +70,8 @@ class Product extends \Eloquent {
 	}
 
 	/**
+	 * Always hash passwords
+	 *
 	 * @param string $value
 	 */
 	public function setPasswordAttribute($value)
