@@ -4,10 +4,21 @@ use Laracasts\Presenter\Presenter;
 
 class ProductPresenter extends Presenter {
 
-	public function price() {
+	public function price()
+	{
 
-		$priceInKroner = $this->entity->price / 100;
+		$priceInKroner = $this->convertToKroner($this->entity->price);
 
 		return  $priceInKroner . ',-';
+	}
+
+	public function priceRaw()
+	{
+		return $this->convertToKroner($this->entity->price);
+	}
+
+	private function convertToKroner($value)
+	{
+		return $value / 100;
 	}
 }

@@ -54,7 +54,11 @@ class AdminProductsController extends \BaseController
 	{
 		$this->productForm->validate(Input::all());
 
-		$product = $this->execute(CreateProductCommand::class, null, [
+		$input = Input::all();
+		$input['slug'] = $input['name'];
+
+
+		$product = $this->execute(CreateProductCommand::class, $input, [
 			ProductSanitizer::class
 		]);
 
@@ -72,34 +76,34 @@ class AdminProductsController extends \BaseController
 	 * Display the specified resource.
 	 * GET /adminproducts/{id}
 	 *
-	 * @param  int $id
+	 * @param Product $product
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Product $product)
 	{
-		dd($id);
 	}
 
 	/**
 	 * Show the form for editing the specified resource.
 	 * GET /adminproducts/{id}/edit
 	 *
-	 * @param  int $id
+	 * @param Product $product
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit(Product $product)
 	{
-		//
+		$customers = Customer::orderBy('id', 'desc')->lists('name', 'id');
+		return View::make('admin.products.edit', compact('product', 'customers'));
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 * PUT /adminproducts/{id}
 	 *
-	 * @param  int $id
+	 * @param Product $product
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Product $product)
 	{
 		//
 	}
@@ -109,7 +113,7 @@ class AdminProductsController extends \BaseController
 	 * DELETE /adminproducts/{id}
 	 *
 	 * @param Product $product
-	 * @internal param int $id
+	 * @internal param int $product
 	 * @return Response
 	 */
 	public function destroy(Product $product)

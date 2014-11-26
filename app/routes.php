@@ -52,7 +52,7 @@ Route::group(['prefix' => 'admin/product'], function () {
 		'uses'  => 'AdminProductsController@create',
 		'as'    => 'admin.products.create',
 	]);
-	Route::post('store/{slug}', [
+	Route::post('store', [
 		'uses'  => 'AdminProductsController@store',
 		'as'    => 'admin.products.store',
 	]);
@@ -60,7 +60,7 @@ Route::group(['prefix' => 'admin/product'], function () {
 		'uses'  => 'AdminProductsController@edit',
 		'as'    => 'admin.products.edit',
 	]);
-	Route::get('update/{slug}', [
+	Route::post('update/{slug}', [
 		'uses'  => 'AdminProductsController@update',
 		'as'    => 'admin.products.update',
 	]);

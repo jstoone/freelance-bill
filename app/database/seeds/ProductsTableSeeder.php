@@ -21,7 +21,7 @@ class ProductsTableSeeder extends Seeder
 				'name'          => $name,
 				'price'         => $faker->numberBetween(100, 5000),
 				'description'   => $faker->paragraph(3),
-				'password'      => Hash::make('secret'),
+				'password'      => 'secret',
 			    'is_paid'       => $faker->boolean(25),
 			    'slug'          => $name,
 			]);

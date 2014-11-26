@@ -14,10 +14,12 @@ class CreateProductCommandHandler implements CommandHandler {
 	public function handle($command)
 	{
 		$product = Product::make(
+			$command->customer_id,
 			$command->name,
 			$command->price,
-			$command->customer_id,
-			$command->description
+			$command->description,
+			$command->password,
+			$command->slug,
 		);
 
 		return Customer::find($command->customer_id)

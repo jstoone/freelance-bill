@@ -12,6 +12,5 @@ class ProductSanitizer implements CommandBus {
 	 */
 	public function execute($command)
 	{
-
 	}
 }

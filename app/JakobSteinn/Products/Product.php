@@ -51,7 +51,7 @@ class Product extends \Eloquent {
 	/**
 	 * Generate unique slug
 	 *
-	 * @param $value
+	 * @param string $value
 	 */
 	public function setSlugAttribute($value)
 	{
@@ -69,15 +69,25 @@ class Product extends \Eloquent {
 	}
 
 	/**
+	 * @param string $value
+	 */
+	public function setPasswordAttribute($value)
+	{
+		$this->attributes['password'] = Hash::make($value);
+	}
+
+	/**
 	 * @param $name
 	 * @param $price
 	 * @param $customer_id
 	 * @param $description
+	 * @param $slug
+	 * @param $password
 	 * @return static
 	 */
-	public static function make($name, $price, $customer_id, $description)
+	public static function make($customer_id, $name, $price, $description, $password, $slug)
 	{
-		return new static(compact('name', 'price', 'customer_id', 'description'));
+		return new static(compact('customer_id', 'name', 'price', 'description', 'password', 'is_paid', 'slug'));
 	}
 
 	/**

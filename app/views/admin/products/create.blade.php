@@ -45,6 +45,13 @@
 
             <div class="row">
 	            <div class="col-md-12">
+	                {{ Form::label('password', 'Password', ['class' => 'control-label']) }}
+                    {{ Form::text('password', '', [
+                        'class' => 'form-control',
+                        'id'    => 'password',
+                        'placeholder' => 'Password'
+                    ]) }}
+
 	                {{ Form::label('description', 'Description', ['class' => 'control-label']) }}
 	                <textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="Product description"></textarea>
 	            </div>
