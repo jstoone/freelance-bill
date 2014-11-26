@@ -5,7 +5,7 @@
 		<h1>Create product</h1>
 
 		@include('layouts.partials.form-errors')
-		{{ Form::model($product, ['route' => ['admin.products.update', $product->slug], 'method' => 'post']) }}
+		{{ Form::model($product, ['route' => ['admin.products.update', $product->id], 'method' => 'post']) }}
 			<div class="row">
 	            <div class="col-md-12">
 					{{ Form::label('name', 'Name', ['class' => 'control-label']) }}

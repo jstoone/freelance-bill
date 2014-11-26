@@ -15,11 +15,11 @@
 		<p>{{ $product->description }}</p>
 
 		@if( ! $product->is_paid)
-			<a class="btn btn-success" href="{{ URL::route('products.pay-9', $product->slug) }}">
+			<a class="btn btn-success" href="{{ URL::route('products.pay-9', $product->id) }}">
 				Correct, let me pay
 			</a>
 		@else
-			<a class="btn btn-default disabled" href="{{ URL::route('products.pay', $product->slug) }}">
+			<a class="btn btn-default disabled" href="{{ URL::route('products.pay', $product->id) }}">
                 This product has been paid for
             </a>
 		@endif

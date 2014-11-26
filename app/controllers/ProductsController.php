@@ -33,7 +33,7 @@ class ProductsController extends BaseController {
 		Session::put('verified', true);
 
 		Flash::message('Please read the information below.');
-		return Redirect::route('products.accept', $product->slug);
+		return Redirect::route('products.accept', $product->id);
 	}
 
 	public function accept(Product $product) {
@@ -45,7 +45,7 @@ class ProductsController extends BaseController {
 		if($product->is_paid)
 		{
 			Flash::message('This product has already been paid for.');
-			return Redirect::route('products.accept', $product->slug);
+			return Redirect::route('products.accept', $product->id);
 		}
 
 		return View::make('products.bill', compact('product'));
@@ -66,7 +66,7 @@ class ProductsController extends BaseController {
 		$product->is_paid = true;
 		$product->save();
 
-		return Redirect::route('products.success', $product->slug);
+		return Redirect::route('products.success', $product->id);
 	}
 
 	public function success(Product $product) {

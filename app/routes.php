@@ -6,14 +6,15 @@ Route::when('admin', 'auth');
 
 // Route Model binding
 use JakobSteinn\Products\Product;
-Route::bind('product', function($value, $route)
+use JakobSteinn\Users\Customer;
+Route::bind('product', function($productId, $route)
 {
-	return Product::where('slug', $value)->firstOrFail();
+	return Product::findOrFail($productId);
 });
 
-Route::bind('customer', function($value, $route)
+Route::bind('customer', function($customerId, $route)
 {
-	return Customer::where('id', $value)->firstOrFail();
+	return Customer::findOrFail($customerId);
 });
 
 // Root redirect

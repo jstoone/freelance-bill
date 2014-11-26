@@ -12,7 +12,7 @@
         <div class="panel-body">
             <h4>Total price: <span class="pull-right">{{ $product->present()->price }}</span></h4>
             <hr/>
-            {{ Form::open(['route' => ['products.bill', $product->slug],'id' => 'billing-form']) }}
+            {{ Form::open(['route' => ['products.bill', $product->id], 'id' => 'billing-form']) }}
                 <div class="form-group">
                     <div class="payment-errors alert alert-danger" style="display: none;"></div>
 
