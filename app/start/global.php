@@ -13,6 +13,7 @@
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Laracasts\Validation\FormValidationException;
+use Stripe_CardError;
 
 ClassLoader::addDirectories(array(
 
@@ -57,18 +58,21 @@ App::error(function(Exception $exception, $code)
 	}
 	Log::error($exception);
 });
-
-App::error(function(FormValidationException $exception, $code)
-{
-	Flash::error('Please see errors below.');
-
-	return Redirect::back()->withInput()->withErrors($exception->getErrors());
-});
-
 App::error(function(ModelNotFoundException $exception, $code)
 {
 	Flash::error('Nothing like that exists, sorry.');
 	return Redirect::route('page', '404');
+});
+
+App::error(function(FormValidationException $exception, $code)
+{
+	Flash::error('Please see errors below.');
+	return Redirect::back()->withInput()->withErrors($exception->getErrors());
+});
+App::error(function(Stripe_CardError $exception, $code)
+{
+	Flash::error('Your card was declined, you can try again if you want.');
+	return Redirect::back();
 });
 
 /*

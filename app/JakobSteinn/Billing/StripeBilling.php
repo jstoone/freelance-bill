@@ -17,17 +17,11 @@ class StripeBilling implements BillingInterface {
 		if( ! $product = $data['product'])
 			throw new InvalidArgumentException('No product found');
 
-		try {
-			return \Stripe_Charge::create([
-				'amount' => $product->price,
-				'currency' => 'DKK',
-				'description' => $product->name,
-				'card' => $data['token']
-			]);
-		} catch(\Stripe_CardError $e)
-		{
-			// card was declined
-			dd('Card was declined');
-		}
+		return \Stripe_Charge::create([
+			'amount' => $product->price,
+			'currency' => 'DKK',
+			'description' => $product->name,
+			'card' => $data['token']
+		]);
 	}
 }
