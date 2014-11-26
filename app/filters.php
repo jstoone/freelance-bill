@@ -54,9 +54,8 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
-Route::filter('auth.mini', function($route, $request, $value)
+Route::filter('auth.mini', function()
 {
-	dd($route, $request, $value);
 });
 
 /*

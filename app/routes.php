@@ -1,5 +1,9 @@
 <?php
 
+// Filters
+Route::when('admin/*', 'auth');
+Route::when('admin', 'auth');
+
 // Route Model binding
 use JakobSteinn\Products\Product;
 
@@ -21,15 +25,15 @@ Route::get('admin', [
 ]);
 
 // Admin Sessions
-Route::get('admin/login', [
+Route::get('login', [
 	'uses'  => 'SessionsController@create',
 	'as'    => 'sessions.create'
 ]);
-Route::get('admin/logout', [
+Route::get('logout', [
 	'uses'  => 'SessionsController@destroy',
 	'as'    => 'sessions.destroy'
 ]);
-Route::post('admin/login', [
+Route::post('login', [
 	'uses'  => 'SessionsController@store',
 	'as'    => 'sessions.store'
 ]);
