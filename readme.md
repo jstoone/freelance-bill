@@ -3,7 +3,10 @@
 ## About
 A small service that let's you create products ie. "ABCompany new adaptive website", which you can share a link and password to the payment form for the client whom then can make sure it's the correct task, fill in card details and get a reciept.
 
-## to-do
+## Installation
+*Comming soon...*
+
+## To-do
 - Keep administration simple! √
 - Add CRUD for Customers √
     + Email
