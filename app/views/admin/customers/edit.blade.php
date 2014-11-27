@@ -5,6 +5,8 @@
 		<h1>New customer</h1>
 		<hr/>
 
+		@include('layouts.partials.form-errors')
+
 		{{ Form::model($customer, ['route' => ['admin.customers.update', $customer->id], 'method' => 'post']) }}
 			{{ Form::label('name', 'Name', ['class' => 'control-label']) }}
 			{{ Form::text('name', null, [

@@ -10,6 +10,6 @@ class CustomerForm extends FormValidator {
 	 */
 	protected $rules = [
 		'name' => 'required',
-		'email' => 'required|email',
+		'email' => 'required|email|unique:customers',
 	];
 }

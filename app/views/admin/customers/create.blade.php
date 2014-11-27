@@ -5,6 +5,8 @@
 		<h1>New customer</h1>
 		<hr/>
 
+		@include('layouts.partials.form-errors')
+
 		{{ Form::open(['route' => 'admin.customers.store', 'method' => 'post']) }}
 
 			{{ Form::label('name', 'Name', ['class' => 'control-label']) }}
