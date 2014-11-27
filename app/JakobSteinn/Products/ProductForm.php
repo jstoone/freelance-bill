@@ -2,8 +2,7 @@
 
 use Laracasts\Validation\FormValidator;
 
-class ProductForm extends FormValidator
-{
+class ProductForm extends FormValidator {
 
 	/**
 	 * Validation rules for product
@@ -11,9 +10,9 @@ class ProductForm extends FormValidator
 	 * @var array
 	 */
 	protected $rules = [
-		'customer_id'   => 'required|integer|exists:customers,id',
-		'name'          => 'required',
-		'price'         => 'required|integer',
-		'description'   => 'required',
+		'customer_id' => 'required|integer|exists:customers,id',
+		'name' => 'required',
+		'price' => 'required|integer',
+		'description' => 'required',
 	];
 }

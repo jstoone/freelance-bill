@@ -9,7 +9,7 @@ class ProductPresenter extends Presenter {
 
 		$priceInKroner = $this->convertToKroner($this->entity->price);
 
-		return  $priceInKroner . ' DKK';
+		return $priceInKroner . ' DKK';
 	}
 
 	public function priceRaw()

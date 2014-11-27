@@ -23,7 +23,7 @@ class CreateProductCommandHandler implements CommandHandler {
 		);
 
 		return Customer::find($command->customer_id)
-				->products()
-				->save($product);
+			->products()
+			->save($product);
 	}
 }

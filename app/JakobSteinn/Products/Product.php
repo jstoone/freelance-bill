@@ -119,15 +119,16 @@ class Product extends \Eloquent {
 	 * @param $value
 	 * @return string
 	 */
-	private function generateUniqueSlug($value) {
+	private function generateUniqueSlug($value)
+	{
 		$slug = Str::slug($value);
-        $slugs = static::whereRaw("slug REGEXP '^{$slug}(-[0-9]*)?$'");
+		$slugs = static::whereRaw("slug REGEXP '^{$slug}(-[0-9]*)?$'");
 
-        if ($slugs->count() === 0)
-                return $slug;
+		if ($slugs->count() === 0)
+			return $slug;
 
-        // get reverse order and get first
-        $lastSlugNumber = intval(str_replace($slug . '-', '', $slugs->orderBy('slug', 'desc')->first()->slug));
-        return $slug . '-' . ($lastSlugNumber + 1);
+		// get reverse order and get first
+		$lastSlugNumber = intval(str_replace($slug . '-', '', $slugs->orderBy('slug', 'desc')->first()->slug));
+		return $slug . '-' . ($lastSlugNumber + 1);
 	}
 }

@@ -13,7 +13,7 @@ class UpdateCustomerCommandHandler implements CommandHandler {
 	public function handle($command)
 	{
 		return $command->customer->update([
-			'name'  => $command->name,
+			'name' => $command->name,
 			'email' => $command->email
 		]);
 	}

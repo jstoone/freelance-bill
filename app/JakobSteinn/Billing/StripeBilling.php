@@ -14,7 +14,7 @@ class StripeBilling implements BillingInterface {
 
 	public function charge(array $data)
 	{
-		if( ! $product = $data['product'])
+		if ( ! $product = $data['product'])
 			throw new InvalidArgumentException('No product found');
 
 		return Stripe_Charge::create([

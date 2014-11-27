@@ -1,12 +1,9 @@
 <?php namespace JakobSteinn\Sessions;
 
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 use Laracasts\Commander\CommandHandler;
-use Laracasts\Flash\Flash;
 
-class LoginCommandHandler implements CommandHandler
-{
+class LoginCommandHandler implements CommandHandler {
 
 	/**
 	 * Handle the login

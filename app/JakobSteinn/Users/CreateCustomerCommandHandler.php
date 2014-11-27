@@ -13,8 +13,8 @@ class CreateCustomerCommandHandler implements CommandHandler {
 	public function handle($command)
 	{
 		return Customer::create([
-				'name'  => $command->name,
-				'email' => $command->email
+			'name' => $command->name,
+			'email' => $command->email
 		]);
 	}
 }
