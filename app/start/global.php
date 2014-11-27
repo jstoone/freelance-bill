@@ -13,7 +13,6 @@
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Laracasts\Validation\FormValidationException;
-use Stripe_CardError;
 
 ClassLoader::addDirectories(array(
 

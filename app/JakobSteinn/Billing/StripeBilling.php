@@ -2,8 +2,8 @@
 
 use Doctrine\Common\Proxy\Exception\InvalidArgumentException;
 use Illuminate\Support\Facades\Config;
-use JakobSteinn\Products\Product;
 use Stripe;
+use Stripe_Charge;
 
 class StripeBilling implements BillingInterface {
 
@@ -17,7 +17,7 @@ class StripeBilling implements BillingInterface {
 		if( ! $product = $data['product'])
 			throw new InvalidArgumentException('No product found');
 
-		return \Stripe_Charge::create([
+		return Stripe_Charge::create([
 			'amount' => $product->price,
 			'currency' => 'DKK',
 			'description' => $product->name,
