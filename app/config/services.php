@@ -27,6 +27,7 @@ return array(
 		'model'  => 'User',
 		'secret' => getenv('STRIPE_SECRET_KEY'),
 		'publish' => getenv('STRIPE_PUBLISH_KEY'),
+		'invoice_text' => 'Freelance Work'
 	),
 
 );

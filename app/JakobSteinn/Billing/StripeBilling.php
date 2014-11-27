@@ -21,6 +21,8 @@ class StripeBilling implements BillingInterface {
 			'amount' => $product->price,
 			'currency' => 'DKK',
 			'description' => $product->name,
+			'statement_description' => Config::get('services.stripe.invoice_text'),
+			'receipt_email' => $product->customer->email,
 			'card' => $data['token']
 		]);
 	}

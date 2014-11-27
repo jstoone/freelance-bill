@@ -69,9 +69,16 @@ App::error(function(FormValidationException $exception, $code)
 	Flash::error('Please see errors below.');
 	return Redirect::back()->withInput()->withErrors($exception->getErrors());
 });
+
+// Stripe errors
 App::error(function(Stripe_CardError $exception, $code)
 {
 	Flash::error('Your card was declined, you can try again if you want.');
+	return Redirect::back();
+});
+App::error(function(Stripe_InvalidRequestError $exception, $code)
+{
+	Flash::error('Something is wrong with the product, please let the admin know.');
 	return Redirect::back();
 });
 
