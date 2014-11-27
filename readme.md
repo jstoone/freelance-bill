@@ -3,7 +3,7 @@
 ## About
 A small service that let's you create products ie. "ABCompany new adaptive website", which you can share a link and password to the payment form for the client whom then can make sure it's the correct task, fill in card details and get a reciept.
 
-## TODO
+## to-do
 - Keep administration simple! √
 - Add CRUD for Customers √
     + Email
@@ -24,7 +24,7 @@ A small service that let's you create products ie. "ABCompany new adaptive websi
     + Route permission/access vulnerability
     + Excape all input
 
-## CAN-DO
+## Can-do
 - Write braintree payment implementation
 - "Save credit card" feature
     Requires:
@@ -35,6 +35,7 @@ A small service that let's you create products ie. "ABCompany new adaptive websi
         * Confirm
 - "Non-programmer installation prompt like a CMS"
 
+## On a sidenote
 Like almost every other project, feel free to submit pull, bug and feature requests, since we're all different we might have different needs (logic).
 Please don't get hurt if I turn down your request, either it's because I'm mean and don't see it fitting the project, or else it's really good, but I would like to implement it in another way. I'm the maintainer after all. :)
 
