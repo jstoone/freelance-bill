@@ -5,7 +5,7 @@ use Laracasts\Commander\CommandHandler;
 class CreateCustomerCommandHandler implements CommandHandler {
 
 	/**
-	 * Handle the command
+	 * Handle the creation of a new customer
 	 *
 	 * @param CreateCustomerCommand $command
 	 * @return mixed

@@ -52,10 +52,6 @@ Route::group(['prefix' => 'admin/product'], function () {
 		'uses'  => 'AdminProductsController@index',
 		'as'    => 'admin.products',
 	]);
-	Route::get('show/{product}', [
-		'uses'  => 'AdminProductsController@show',
-		'as'    => 'admin.products.show',
-	]);
 	Route::get('create', [
 		'uses'  => 'AdminProductsController@create',
 		'as'    => 'admin.products.create',
@@ -83,10 +79,6 @@ Route::group(['prefix' => 'admin/customer'], function () {
 	Route::get('/', [
 		'uses'  => 'AdminCustomersController@index',
 		'as'    => 'admin.customers',
-	]);
-	Route::get('show/{customer}', [
-		'uses'  => 'AdminCustomersController@show',
-		'as'    => 'admin.customers.show',
 	]);
 	Route::get('create', [
 		'uses'  => 'AdminCustomersController@create',

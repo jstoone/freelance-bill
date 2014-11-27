@@ -21,6 +21,12 @@ class StripeBilling implements BillingInterface {
 		$this->customerApi = $customerApi;
 	}
 
+	/**
+	 * Charge a Stripe customer card
+	 *
+	 * @param array $data
+	 * @return Stripe_Charge
+	 */
 	public function charge(array $data)
 	{
 		if ( ! $product = $data['product'])
@@ -43,6 +49,13 @@ class StripeBilling implements BillingInterface {
 		]);
 	}
 
+	/**
+	 * Create a new Stripe customer
+	 *
+	 * @param $token
+	 * @param $product
+	 * @return mixed
+	 */
 	private function createCustomer($token, $product)
 	{
 		$customer = $this->customerApi->create([

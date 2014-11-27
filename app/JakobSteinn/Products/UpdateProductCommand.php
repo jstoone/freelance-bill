@@ -38,13 +38,13 @@ class UpdateProductCommand {
 	public $product;
 
 	/**
-	 * @param $product
-	 * @param $name
-	 * @param $price
-	 * @param $customer_id
-	 * @param $description
-	 * @param $slug
-	 * @param $password
+	 * @param Product $product
+	 * @param string  $name
+	 * @param int     $price
+	 * @param int     $customer_id
+	 * @param string  $description
+	 * @param string  $slug
+	 * @param string  $password
 	 */
 	function __construct($product, $name, $price, $customer_id, $description, $slug, $password)
 	{

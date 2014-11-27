@@ -8,7 +8,7 @@ class UpdateProductCommandHandler implements CommandHandler {
 	 * Handle the creation of a product
 	 *
 	 * @param UpdateProductCommand $command
-	 * @return mixed
+	 * @return boolean
 	 */
 	public function handle($command)
 	{

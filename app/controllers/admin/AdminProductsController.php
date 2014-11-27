@@ -21,8 +21,7 @@ class AdminProductsController extends \BaseController
 
 
 	/**
-	 * Display a listing of the resource.
-	 * GET /adminproducts
+	 * Display a listing of products.
 	 *
 	 * @return Response
 	 */
@@ -34,8 +33,7 @@ class AdminProductsController extends \BaseController
 	}
 
 	/**
-	 * Show the form for creating a new resource.
-	 * GET /adminproducts/create
+	 * Show the form for creating a new product.
 	 *
 	 * @return Response
 	 */
@@ -46,8 +44,7 @@ class AdminProductsController extends \BaseController
 	}
 
 	/**
-	 * Store a newly created resource in storage.
-	 * POST /adminproducts
+	 * Store a newly created product in storage.
 	 *
 	 * @return Response
 	 */
@@ -74,19 +71,7 @@ class AdminProductsController extends \BaseController
 	}
 
 	/**
-	 * Display the specified resource.
-	 * GET /adminproducts/{id}
-	 *
-	 * @param Product $product
-	 * @return Response
-	 */
-	public function show(Product $product)
-	{
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /adminproducts/{id}/edit
+	 * Show the form for editing the specified product.
 	 *
 	 * @param Product $product
 	 * @return Response
@@ -98,8 +83,7 @@ class AdminProductsController extends \BaseController
 	}
 
 	/**
-	 * Update the specified resource in storage.
-	 * PUT /adminproducts/{id}
+	 * Update the specified product in storage.
 	 *
 	 * @param Product $product
 	 * @return Response
@@ -127,8 +111,7 @@ class AdminProductsController extends \BaseController
 	}
 
 	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /adminproducts/{id}
+	 * Remove the specified product from storage.
 	 *
 	 * @param Product $product
 	 * @internal param int $product

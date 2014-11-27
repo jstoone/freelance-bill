@@ -16,6 +16,11 @@ class Customer extends \Eloquent {
 	protected $fillable = ['name', 'email', 'billing_id'];
 
 
+	/**
+	 * Define the relationship between a customer and it's products
+	 *
+	 * @return mixed
+	 */
 	public function products()
 	{
 		return $this->hasMany(Product::class, 'customer_id', 'id');

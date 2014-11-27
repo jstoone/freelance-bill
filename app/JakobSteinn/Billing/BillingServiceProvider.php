@@ -8,11 +8,17 @@ use Stripe;
 
 class BillingServiceProvider extends ServiceProvider {
 
+	/**
+	 * On boot set stripe API key
+	 */
 	public function boot()
 	{
 		Stripe::setApiKey(Config::get('services.stripe.secret'));
 	}
 
+	/**
+	 * Register correct Stripe implementations
+	 */
 	public function register()
 	{
 		$this->app->bind(BillingInterface::class, StripeBilling::class);

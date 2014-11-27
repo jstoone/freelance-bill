@@ -5,7 +5,7 @@ use Laracasts\Commander\CommandHandler;
 class UpdateCustomerCommandHandler implements CommandHandler {
 
 	/**
-	 * Handle the command
+	 * Handle updating an exisiting customer
 	 *
 	 * @param CreateCustomerCommand $command
 	 * @return mixed

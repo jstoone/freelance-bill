@@ -13,8 +13,8 @@ class LoginCommand {
 	public $password;
 
 	/**
-	 * @param $username
-	 * @param $password
+	 * @param string $username
+	 * @param string $password
 	 */
 	function __construct($username, $password)
 	{

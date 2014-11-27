@@ -21,8 +21,7 @@ class AdminCustomersController extends \BaseController
 	}
 
 	/**
-	 * Display a listing of the resource.
-	 * GET /admincustomer
+	 * Display a listing of customers
 	 *
 	 * @return Response
 	 */
@@ -34,8 +33,7 @@ class AdminCustomersController extends \BaseController
 	}
 
 	/**
-	 * Show the form for creating a new resource.
-	 * GET /admincustomer/create
+	 * Show the form for creating a new customer.
 	 *
 	 * @return Response
 	 */
@@ -45,8 +43,7 @@ class AdminCustomersController extends \BaseController
 	}
 
 	/**
-	 * Store a newly created resource in storage.
-	 * POST /admincustomer
+	 * Store a newly created customer in storage.
 	 *
 	 * @return Response
 	 */
@@ -68,20 +65,7 @@ class AdminCustomersController extends \BaseController
 	}
 
 	/**
-	 * Display the specified resource.
-	 * GET /admincustomer/{id}
-	 *
-	 * @param  Customer $customer
-	 * @return Response
-	 */
-	public function show(Customer $customer)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /admincustomer/{id}/edit
+	 * Show the form for editing the specified customer.
 	 *
 	 * @param  Customer $customer
 	 * @return Response
@@ -92,8 +76,7 @@ class AdminCustomersController extends \BaseController
 	}
 
 	/**
-	 * Update the specified resource in storage.
-	 * PUT /admincustomer/{id}
+	 * Update the specified customer in storage.
 	 *
 	 * @param  Customer $customer
 	 * @return Response
@@ -120,8 +103,7 @@ class AdminCustomersController extends \BaseController
 	}
 
 	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /admincustomer/{id}
+	 * Remove the specified customer from storage.
 	 *
 	 * @param Customer $customer
 	 * @return Response

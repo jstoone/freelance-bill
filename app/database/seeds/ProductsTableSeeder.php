@@ -17,7 +17,7 @@ class ProductsTableSeeder extends Seeder
 			$name = $faker->realText(20);
 
 			Product::create([
-				'customer_id'  => $faker->randomElement($customers),
+				'customer_id'   => $faker->randomElement($customers),
 				'name'          => $name,
 				'price'         => $faker->numberBetween(100, 5000),
 				'description'   => $faker->realText(),

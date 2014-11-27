@@ -3,12 +3,22 @@
 class DatabaseSeeder extends Seeder
 {
 
+	/**
+	 * Tables that are impacted by seeds
+	 *
+	 * @var array
+	 */
 	protected $tables = [
 		'users',
 		'customers',
 		'customer_products',
 	];
 
+	/**
+	 * List of all table seeders
+	 *
+	 * @var array
+	 */
 	protected $seeders = [
 		'UsersTableSeeder',
 		'CustomersTableSeeder',
@@ -32,6 +42,9 @@ class DatabaseSeeder extends Seeder
 		}
 	}
 
+	/**
+	 * Clean the database and relevant tables
+	 */
 	public function cleanDatabase()
 	{
 		DB::statement('SET FOREIGN_KEY_CHECKS=0');

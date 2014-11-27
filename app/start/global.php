@@ -48,6 +48,7 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 |
 */
 
+// Global errors
 App::error(function(Exception $exception, $code)
 {
 	if( ! App::isLocal())

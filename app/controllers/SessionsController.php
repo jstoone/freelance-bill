@@ -19,7 +19,6 @@ class SessionsController extends \BaseController {
 
 	/**
 	 * Show the form for logging in.
-	 * GET /sessions/create
 	 *
 	 * @return Response
 	 */
@@ -30,7 +29,6 @@ class SessionsController extends \BaseController {
 
 	/**
 	 * Create a new session for user
-	 * POST /sessions
 	 *
 	 * @return Response
 	 */
@@ -54,7 +52,6 @@ class SessionsController extends \BaseController {
 
 	/**
 	 * Log user out
-	 * DELETE /sessions/{id}
 	 *
 	 * @return Response
 	 */

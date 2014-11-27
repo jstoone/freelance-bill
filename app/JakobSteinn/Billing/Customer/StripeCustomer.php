@@ -6,7 +6,7 @@ use Stripe_Customer;
 class StripeCustomer implements CustomerInterface {
 
 	/**
-	 * Create a new Stripe custoemr
+	 * Create a new Stripe customer
 	 *
 	 * @param array $data
 	 * @return Stripe_Customer
@@ -25,7 +25,7 @@ class StripeCustomer implements CustomerInterface {
 	}
 
 	/**
-	 * Retrieve a new stripe custoemr
+	 * Retrieve an existing Stripe customer
 	 *
 	 * @param $id
 	 * @return Stripe_Customer
