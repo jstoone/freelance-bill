@@ -23,8 +23,8 @@ A small service that let's you create products ie. "ABCompany new adaptive websi
     + (It should be possible to write new implementations easily) √
 - Get reciept on billing success √
 - Make sure all routes are secure
-    + CSRF protection
-    + Route permission/access vulnerability
+    + CSRF protection √
+    + Route permission/access vulnerability √
     + Excape all input
 
 ## Can-do
