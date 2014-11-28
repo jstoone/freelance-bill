@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	<div id="admin-index" class="col-md-12">
+	<div id="admin-customers-index" class="col-md-12">
 		<h1>All customers</h1>
 		<hr/>
 

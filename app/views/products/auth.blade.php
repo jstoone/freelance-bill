@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	<div id="sessions-create" class="">
+	<div id="prodcuts-auth" class="">
 		{{ Form::open(['route' => ['products.verify', $product->slug], 'method' => 'post']) }}
 			<h1>Enter password</h1>
 			<label class="sr-only" for="password">Password</label>

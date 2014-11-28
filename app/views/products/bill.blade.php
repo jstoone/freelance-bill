@@ -3,7 +3,6 @@
 
 @section('content')
 <div id="products-bill" class="col-md-6 col-md-offset-3">
-
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3>Payment details for:</h3>

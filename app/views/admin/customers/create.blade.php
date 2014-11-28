@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	<div id="admin-products-create" class="col-md-6 col-lg-offset-3">
+	<div id="admin-customers-create" class="col-md-6 col-lg-offset-3">
 		<h1>New customer</h1>
 		<hr/>
 

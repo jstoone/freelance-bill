@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	<div id="admin-products-create" class="col-md-6 col-lg-offset-3">
+	<div id="admin-products-edit" class="col-md-6 col-lg-offset-3">
 		<h1>Edit product</h1>
 		<hr/>
 		@include('layouts.partials.form-errors')
