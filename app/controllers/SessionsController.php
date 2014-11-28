@@ -13,8 +13,11 @@ class SessionsController extends \BaseController {
 
 	public function __construct(LoginForm $loginForm)
 	{
-		$this->beforeFilter('guest');
 		$this->loginForm = $loginForm;
+
+		$this->beforeFilter('guest', ['except' => 'destroy']);
+		$this->beforeFilter('auth', ['only' => 'destroy']);
+		$this->beforeFilter('csrf', ['only' => 'store']);
 	}
 
 	/**
@@ -58,6 +61,8 @@ class SessionsController extends \BaseController {
 	public function destroy()
 	{
 		Auth::logout();
+
+		Redirect::route('sessions.create');
 	}
 
 }

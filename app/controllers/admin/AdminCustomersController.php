@@ -18,6 +18,8 @@ class AdminCustomersController extends \BaseController
 	function __construct(CustomerForm $customerForm)
 	{
 		$this->customerForm = $customerForm;
+
+		$this->beforeFilter('csrf', ['only' => ['store', 'update']]);
 	}
 
 	/**

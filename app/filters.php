@@ -64,7 +64,7 @@ Route::filter('auth.mini', function($route, $request)
 
 	if($request->session()->get('verifier') != $product->id)
 	{
-		Flash::warning('Doesn\'t seem like you have the right permissions, please log in');
+		Flash::warning("Doesn't seem like you have the right permissions, please log in");
 		return Redirect::route('products.auth', $product->slug);
 	}
 });

@@ -17,6 +17,8 @@ class AdminProductsController extends \BaseController
 	function __construct(ProductForm $productForm)
 	{
 		$this->productForm = $productForm;
+
+		$this->beforeFilter('csrf', ['only' => ['store', 'update']]);
 	}
 
 

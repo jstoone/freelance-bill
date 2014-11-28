@@ -18,6 +18,7 @@ class ProductsController extends BaseController {
 		$this->billing = $billing;
 
 		$this->beforeFilter('auth.mini', ['except' => ['auth', 'verify']]);
+		$this->beforeFilter('csrf', ['only' => ['verify', 'bill']]);
 	}
 
 	/**
