@@ -16,6 +16,8 @@ class ProductsController extends BaseController {
 	function __construct(BillingInterface $billing)
 	{
 		$this->billing = $billing;
+
+		$this->beforeFilter('auth.mini', ['except' => ['auth', 'verify']]);
 	}
 
 	/**
@@ -44,7 +46,7 @@ class ProductsController extends BaseController {
 			return Redirect::back()->withInput();
 		}
 
-		Session::put('verified', true);
+		Session::put('verifier', $product->id);
 
 		Flash::message('Please read the information below.');
 		return Redirect::route('products.accept', $product->slug);

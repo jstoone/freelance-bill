@@ -11,6 +11,9 @@
 |
 */
 
+use Illuminate\Support\Facades\Redirect;
+use Laracasts\Flash\Flash;
+
 App::before(function($request)
 {
 	//
@@ -54,8 +57,16 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
-Route::filter('auth.mini', function()
+Route::filter('auth.mini', function($route, $request)
 {
+	$params = $route->parameters();
+	$product = $params['slug'];
+
+	if($request->session()->get('verifier') != $product->id)
+	{
+		Flash::warning('Doesn\'t seem like you have the right permissions, please log in');
+		return Redirect::route('products.auth', $product->slug);
+	}
 });
 
 /*
