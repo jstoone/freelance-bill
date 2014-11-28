@@ -32,7 +32,7 @@ class StripeCustomer implements CustomerInterface {
 	 */
 	public function retrieve($id)
 	{
-		if( ! isset($id))
+		if ( ! isset($id))
 			throw new InvalidArgumentException('No id given');
 
 		return Stripe_Customer::retrieve($id);
@@ -45,10 +45,10 @@ class StripeCustomer implements CustomerInterface {
 	 */
 	private function guard($data)
 	{
-		if( ! isset($data['token']))
+		if ( ! isset($data['token']))
 			throw new InvalidArgumentException('No token specified');
 
-		if( ! isset($data['model']))
+		if ( ! isset($data['model']))
 			throw new InvalidArgumentException('No customer found');
 
 	}

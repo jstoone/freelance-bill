@@ -3,13 +3,16 @@
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use JakobSteinn\Products\Events\ProductMade;
 use JakobSteinn\Users\Customer;
+use Laracasts\Commander\Events\EventGenerator;
 use Laracasts\Presenter\PresentableTrait;
 
 class Product extends \Eloquent {
 
 	use PresentableTrait;
 	use SoftDeletingTrait;
+	use EventGenerator;
 
 	/**
 	 * Don't hide simple password
@@ -112,7 +115,13 @@ class Product extends \Eloquent {
 	 */
 	public static function make($customer_id, $name, $price, $description, $password, $slug)
 	{
-		return new static(compact('customer_id', 'name', 'price', 'description', 'password', 'is_paid', 'slug'));
+		$product = new static(compact(
+			'customer_id', 'name', 'price',
+			'description', 'password', 'is_paid',
+			'slug'
+		));
+
+		return $product;
 	}
 
 	/**

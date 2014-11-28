@@ -2,8 +2,11 @@
 
 use JakobSteinn\Users\Customer;
 use Laracasts\Commander\CommandHandler;
+use Laracasts\Commander\Events\DispatchableTrait;
 
 class CreateProductCommandHandler implements CommandHandler {
+
+	use DispatchableTrait;
 
 	/**
 	 * Handle the creation of a product
@@ -22,8 +25,10 @@ class CreateProductCommandHandler implements CommandHandler {
 			$command->slug
 		);
 
-		return Customer::find($command->customer_id)
+		Customer::find($command->customer_id)
 			->products()
 			->save($product);
+
+		return $product;
 	}
 }

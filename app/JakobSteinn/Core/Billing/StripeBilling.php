@@ -3,7 +3,6 @@
 use Doctrine\Common\Proxy\Exception\InvalidArgumentException;
 use Illuminate\Support\Facades\Config;
 use JakobSteinn\Billing\Customer\CustomerInterface;
-use Stripe;
 use Stripe_Charge;
 
 class StripeBilling implements BillingInterface {
@@ -34,8 +33,7 @@ class StripeBilling implements BillingInterface {
 
 		$customerModel = $product->customer;
 
-		if( ! $customerId = $customerModel->stripe_customer_id)
-		{
+		if ( ! $customerId = $customerModel->stripe_customer_id) {
 			$customerId = $this->createCustomer($data['token'], $product);
 		}
 

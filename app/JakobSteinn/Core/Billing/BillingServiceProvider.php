@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
-use JakobSteinn\Billing\Customer\CustomerInterface;
-use JakobSteinn\Billing\Customer\StripeCustomer;
 use Stripe;
 
 class BillingServiceProvider extends ServiceProvider {
@@ -21,7 +19,7 @@ class BillingServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app->bind(BillingInterface::class, StripeBilling::class);
-		$this->app->bind(CustomerInterface::class, StripeCustomer::class);
+		$this->app->bind('JakobSteinn\Billing\BillingInterface', 'JakobSteinn\Billing\StripeBilling');
+		$this->app->bind('JakobSteinn\Billing\Customer\CustomerInterface', 'JakobSteinn\Billing\Customer\StripeCustomer');
 	}
 }
