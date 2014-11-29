@@ -1,5 +1,6 @@
 <?php namespace JakobSteinn\Users\Commands;
 
+use JakobSteinn\Users\Customer;
 use Laracasts\Commander\CommandHandler;
 
 class CreateCustomerCommandHandler implements CommandHandler {
