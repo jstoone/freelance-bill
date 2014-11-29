@@ -26,6 +26,7 @@ A small service that let's you create products ie. "ABCompany new adaptive websi
     + CSRF protection √
     + Route permission/access vulnerability √
     + Excape all input
+- Make the system send out an email to the customer with the product login and password
 
 ## Can-do
 - Write braintree payment implementation
@@ -37,7 +38,6 @@ A small service that let's you create products ie. "ABCompany new adaptive websi
         * Password
         * Confirm
 - "Non-programmer installation prompt like a CMS"
-- Make the system send out an email to the customer with the product login and password
 
 ## On a sidenote
 Like almost every other project, feel free to submit pull, bug and feature requests, since we're all different we might have different needs (logic).
