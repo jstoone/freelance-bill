@@ -1,7 +1,7 @@
 <?php
 
-use JakobSteinn\Sessions\LoginCommand;
-use JakobSteinn\Sessions\LoginForm;
+use JakobSteinn\Forms\LoginForm;
+use JakobSteinn\Sessions\Commands\LoginCommand;
 use JakobSteinn\Sessions\LoginSanitizer;
 
 class SessionsController extends \BaseController {

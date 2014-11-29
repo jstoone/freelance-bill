@@ -1,10 +1,10 @@
 <?php
 
 use JakobSteinn\Forms\ProductForm;
-use JakobSteinn\Products\CreateProductCommand;
+use JakobSteinn\Products\Commands\CreateProductCommand;
+use JakobSteinn\Products\Commands\UpdateProductCommand;
 use JakobSteinn\Products\Product;
 use JakobSteinn\Products\ProductSanitizer;
-use JakobSteinn\Products\UpdateProductCommand;
 use JakobSteinn\Users\Customer;
 
 class AdminProductsController extends \BaseController
@@ -108,7 +108,7 @@ class AdminProductsController extends \BaseController
 			return Redirect::back()->withInput();
 		}
 
-		Flash::success('Yay! Created new product: ' . $product->name);
+		Flash::success('Yay! Updated product: ' . $product->name);
 		return Redirect::route('admin');
 	}
 

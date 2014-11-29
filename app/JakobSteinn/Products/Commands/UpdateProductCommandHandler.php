@@ -20,7 +20,7 @@ class UpdateProductCommandHandler implements CommandHandler {
 
 		if ($command->slug != $command->product->slug)
 			$updateArray['slug'] = $command->slug;
-		if (count(trim($command->password)) == 0)
+		if (strlen($command->password))
 			$updateArray['password'] = $command->password;
 
 		return $command->product->update($updateArray);

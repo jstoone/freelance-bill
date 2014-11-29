@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Input;
-use JakobSteinn\Users\CreateCustomerCommand;
-use JakobSteinn\Users\CustomerForm;
+use JakobSteinn\Forms\CustomerForm;
+use JakobSteinn\Users\Commands\CreateCustomerCommand;
 use JakobSteinn\Users\Customer;
 use JakobSteinn\Users\CustomerSanitizer;
-use JakobSteinn\Users\UpdateCustomerCommand;
+use JakobSteinn\Users\Commands\UpdateCustomerCommand;
 
 class AdminCustomersController extends \BaseController
 {

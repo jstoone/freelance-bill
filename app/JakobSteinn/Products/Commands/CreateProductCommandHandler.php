@@ -1,5 +1,6 @@
 <?php namespace JakobSteinn\Products\Commands;
 
+use JakobSteinn\Products\Product;
 use JakobSteinn\Users\Customer;
 use Laracasts\Commander\CommandHandler;
 use Laracasts\Commander\Events\DispatchableTrait;

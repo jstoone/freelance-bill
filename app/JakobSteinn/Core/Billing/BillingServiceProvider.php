@@ -19,7 +19,13 @@ class BillingServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app->bind('JakobSteinn\Billing\BillingInterface', 'JakobSteinn\Billing\StripeBilling');
-		$this->app->bind('JakobSteinn\Billing\Customer\CustomerInterface', 'JakobSteinn\Billing\Customer\StripeCustomer');
+		$this->app->bind(
+			'JakobSteinn\Core\Billing\BillingInterface',
+			'JakobSteinn\Core\Billing\StripeBilling'
+		);
+		$this->app->bind(
+			'JakobSteinn\Core\Billing\Customer\CustomerInterface',
+			'JakobSteinn\Core\Billing\Customer\StripeCustomer'
+		);
 	}
 }

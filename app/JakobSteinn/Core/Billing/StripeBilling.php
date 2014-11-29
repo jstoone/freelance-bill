@@ -1,8 +1,8 @@
 <?php namespace JakobSteinn\Core\Billing;
 
-use Doctrine\Common\Proxy\Exception\InvalidArgumentException;
 use Illuminate\Support\Facades\Config;
-use JakobSteinn\Billing\Customer\CustomerInterface;
+use InvalidArgumentException;
+use JakobSteinn\Core\Billing\Customer\CustomerInterface;
 use Stripe_Charge;
 
 class StripeBilling implements BillingInterface {

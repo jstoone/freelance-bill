@@ -1,6 +1,6 @@
 <?php
 
-use JakobSteinn\Billing\BillingInterface;
+use JakobSteinn\Core\Billing\BillingInterface;
 use JakobSteinn\Products\Product;
 
 class ProductsController extends BaseController {
