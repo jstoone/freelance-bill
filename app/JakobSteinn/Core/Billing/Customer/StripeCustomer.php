@@ -1,4 +1,4 @@
-<?php namespace JakobSteinn\Billing\Customer;
+<?php namespace JakobSteinn\Core\Billing\Customer;
 
 use Doctrine\Common\Proxy\Exception\InvalidArgumentException;
 use Stripe_Customer;

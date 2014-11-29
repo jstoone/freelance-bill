@@ -1,4 +1,4 @@
-<?php namespace JakobSteinn\Users;
+<?php namespace JakobSteinn\Users\Commands;
 
 use Laracasts\Commander\CommandHandler;
 

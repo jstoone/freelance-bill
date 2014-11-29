@@ -1,4 +1,4 @@
-<?php namespace JakobSteinn\Products;
+<?php namespace JakobSteinn\Products\Commands;
 
 class CreateProductCommand {
 

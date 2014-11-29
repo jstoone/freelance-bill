@@ -1,4 +1,4 @@
-<?php namespace JakobSteinn\Billing;
+<?php namespace JakobSteinn\Core\Billing;
 
 interface BillingInterface {
 

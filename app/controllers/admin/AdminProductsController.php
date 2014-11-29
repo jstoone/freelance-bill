@@ -1,8 +1,8 @@
 <?php
 
+use JakobSteinn\Forms\ProductForm;
 use JakobSteinn\Products\CreateProductCommand;
 use JakobSteinn\Products\Product;
-use JakobSteinn\Products\ProductForm;
 use JakobSteinn\Products\ProductSanitizer;
 use JakobSteinn\Products\UpdateProductCommand;
 use JakobSteinn\Users\Customer;

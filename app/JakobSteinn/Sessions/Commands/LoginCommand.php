@@ -1,4 +1,4 @@
-<?php namespace JakobSteinn\Sessions;
+<?php namespace JakobSteinn\Sessions\Commands;
 
 class LoginCommand {
 

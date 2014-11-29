@@ -1,4 +1,4 @@
-<?php namespace JakobSteinn\Billing;
+<?php namespace JakobSteinn\Core\Billing;
 
 use Doctrine\Common\Proxy\Exception\InvalidArgumentException;
 use Illuminate\Support\Facades\Config;

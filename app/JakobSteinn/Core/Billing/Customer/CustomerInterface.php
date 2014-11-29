@@ -1,4 +1,4 @@
-<?php namespace JakobSteinn\Billing\Customer;
+<?php namespace JakobSteinn\Core\Billing\Customer;
 
 interface CustomerInterface {
 

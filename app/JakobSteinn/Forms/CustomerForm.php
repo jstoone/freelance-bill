@@ -1,4 +1,4 @@
-<?php namespace JakobSteinn\Users;
+<?php namespace JakobSteinn\Forms;
 
 use Laracasts\Validation\FormValidator;
 

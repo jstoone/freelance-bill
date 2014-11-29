@@ -1,4 +1,4 @@
-<?php namespace JakobSteinn\Billing;
+<?php namespace JakobSteinn\Core\Billing;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;

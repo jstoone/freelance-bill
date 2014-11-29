@@ -127,7 +127,7 @@ return array(
 		'Laracasts\Validation\ValidationServiceProvider',
 		'Laracasts\Flash\FlashServiceProvider',
 
-		'JakobSteinn\Billing\BillingServiceProvider',
+		'JakobSteinn\Core\Billing\BillingServiceProvider',
 	),
 
 	/*

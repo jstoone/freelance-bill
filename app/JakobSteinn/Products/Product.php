@@ -3,7 +3,6 @@
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use JakobSteinn\Products\Events\ProductMade;
 use JakobSteinn\Users\Customer;
 use Laracasts\Commander\Events\EventGenerator;
 use Laracasts\Presenter\PresentableTrait;
