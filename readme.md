@@ -38,6 +38,7 @@ A small service that let's you create products ie. "ABCompany new adaptive websi
         * Password
         * Confirm
 - "Non-programmer installation prompt like a CMS"
+- Migrate/rewrite project to Laravel 5
 
 ## On a sidenote
 Like almost every other project, feel free to submit pull, bug and feature requests, since we're all different we might have different needs (logic).
