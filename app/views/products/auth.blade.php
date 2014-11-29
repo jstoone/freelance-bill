@@ -9,6 +9,7 @@
 				'class' => 'form-control',
 				'placeholder' => 'Password'
 			]) }}
+			<hr/>
 
 			{{ Form::submit('Submit', ['class' => 'btn btn-lg btn-primary btn-block']) }}
 
