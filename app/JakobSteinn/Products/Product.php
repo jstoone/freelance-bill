@@ -3,6 +3,7 @@
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use JakobSteinn\Core\Mailers\CustomerMailer;
 use JakobSteinn\Users\Customer;
 use JakobSteinn\Products\Events\ProductHasBeenAdded;
 use Laracasts\Commander\Events\EventGenerator;
@@ -111,7 +112,7 @@ class Product extends \Eloquent {
 			'slug'
 		));
 
-		$product->raise(new ProductHasBeenAdded($product));
+		$product->raise(new ProductHasBeenAdded($product, new CustomerMailer()));
 
 		return $product;
 	}

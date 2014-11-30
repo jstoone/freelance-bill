@@ -7,7 +7,7 @@ class ProductHasBeenAdded {
 	/**
 	 * @var Product
 	 */
-	private $product;
+	public $product;
 
 	function __construct(Product $product)
 	{
