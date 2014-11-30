@@ -24,7 +24,7 @@
 				<div class="col-md-4">
 	                {{ Form::label('price', 'Price', ['class' => 'control-label']) }}
                     <div class="input-group">
-                        <span class="input-group-addon">$</span>
+                        <span class="input-group-addon">DKK</span>
                         {{ Form::text('price', null, [
                             'class' => 'form-control',
                             'id'    => 'price',
