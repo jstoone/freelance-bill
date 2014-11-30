@@ -25,7 +25,7 @@ A small service that let's you create products ie. "ABCompany new adaptive websi
 - Make sure all routes are secure
     + CSRF protection √
     + Route permission/access vulnerability √
-    + Excape all text written by user
+    + Excape all text written by user √
 - Make the system send out an email to the customer with the product login and password √
 
 ## Can-do
