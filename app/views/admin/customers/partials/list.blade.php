@@ -10,10 +10,10 @@
     <tbody>
 @foreach($customers as $index => $customer)
     <tr>
-        <td>{{ $customer->id }}</td>
-        <td>{{ $customer->name }}</td>
+        <td>{{{ $customer->id }}}</td>
+        <td>{{{ $customer->name }}}</td>
         <td>
-            {{ $customer->products()->paid()->count() }} / {{ $customer->products->count() }}
+            {{{ $customer->products()->paid()->count() }}} / {{{ $customer->products->count() }}}
         </td>
         <td>
             <a class="btn btn-xs btn-primary" href="{{ URL::route('admin.customers.edit', $customer->id) }}">

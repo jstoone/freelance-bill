@@ -10,14 +10,14 @@
 			</div>
 			<div class="col-md-12">
 				<p>
-					<b>{{ $product->customer->name }}</b> <br/>
-					{{ $product->customer->email }}
+					<b>{{{ $product->customer->name }}}</b> <br/>
+					{{{ $product->customer->email }}}
 				</p>
 			</div>
 			<div class="col-md-12">
 				<p class="text-right">
-					{{ date('jS F Y H:i') }} <br/>
-					Reciept #: {{ $product->id }}
+					{{{ date('jS F Y H:i') }}} <br/>
+					Reciept #: {{{ $product->id }}}
 				</p>
 			</div>
 			<div class="col-md-12">
@@ -35,14 +35,14 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td>{{ $product->name }}</td>
-							<td>{{ $product->description }}</td>
-							<td>{{ $product->present()->price }}</td>
+							<td>{{{ $product->name }}}</td>
+							<td>{{{ $product->description }}}</td>
+							<td>{{{ $product->present()->price }}}</td>
 						</tr>
 						<tr>
 							<td></td>
 							<td colspan="2">
-								<h3 class="text-right">Total: {{ $product->present()->price }}</h3>
+								<h3 class="text-right">Total: {{{ $product->present()->price }}}</h3>
 							</td>
 						</tr>
 					</tbody>

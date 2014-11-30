@@ -6,10 +6,10 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3>Payment details for:</h3>
-            <h4>{{ $product->name }}</h4>
+            <h4>{{{ $product->name }}}</h4>
         </div>
         <div class="panel-body">
-            <h4>Total price: <span class="pull-right">{{ $product->present()->price }}</span></h4>
+            <h4>Total price: <span class="pull-right">{{{ $product->present()->price }}}</span></h4>
             <hr/>
             {{ Form::open(['route' => ['products.bill', $product->slug], 'id' => 'billing-form']) }}
                 <div class="form-group">

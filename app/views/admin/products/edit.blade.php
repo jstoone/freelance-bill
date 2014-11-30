@@ -57,7 +57,7 @@
                     ]) }}
 
                     {{ Form::label('description', 'Description', ['class' => 'control-label']) }}
-                    <textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="Product description">{{ $product->description }}</textarea>
+                    <textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="Product description">{{{ $product->description }}}</textarea>
 
 	            </div>
             </div>

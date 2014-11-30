@@ -20,15 +20,15 @@
 	<tbody>
 	@foreach( $products as $product )
 		<tr>
-			<td>{{ $product->id }}</td>
+			<td>{{{ $product->id }}}</td>
 			<td>
-				{{ $product->name }}
+				{{{ $product->name }}}
 			</td>
 			<td>
-				{{ $product->present()->price }}
+				{{{ $product->present()->price }}}
             </td>
             <td>
-                {{ $product->description }}
+                {{{ $product->description }}}
             </td>
             <td>
                 @if($product->is_paid)

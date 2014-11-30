@@ -9,16 +9,16 @@
 			{{ Form::text('username', null, [
 				'class' => 'form-control',
 				'placeholder' => 'Username'
-			]) }}
+				]) }}
 
-			<label class="sr-only" for="password">Password</label>
-			{{ Form::password('password', [
-				'class' => 'form-control',
-				'placeholder' => 'Password'
-			]) }}
+				<label class="sr-only" for="password">Password</label>
+				{{ Form::password('password', [
+					'class' => 'form-control',
+					'placeholder' => 'Password'
+				]) }}
 
-			{{ Form::submit('Submit', ['class' => 'btn btn-lg btn-primary btn-block']) }}
+				{{ Form::submit('Submit', ['class' => 'btn btn-lg btn-primary btn-block']) }}
 
-		{{ Form::close() }}
-	</div>
-@stop
+			{{ Form::close() }}
+		</div>
+	@stop
