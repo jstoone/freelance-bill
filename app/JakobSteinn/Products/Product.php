@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\SoftDeletingTrait;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use JakobSteinn\Users\Customer;
+use JakobSteinn\Products\Events\ProductHasBeenAdded;
 use Laracasts\Commander\Events\EventGenerator;
 use Laracasts\Presenter\PresentableTrait;
 
@@ -94,16 +95,6 @@ class Product extends \Eloquent {
 	}
 
 	/**
-	 * Always hash passwords
-	 *
-	 * @param string $value
-	 */
-	public function setPasswordAttribute($value)
-	{
-		$this->attributes['password'] = Hash::make($value);
-	}
-
-	/**
 	 * @param $name
 	 * @param $price
 	 * @param $customer_id
@@ -119,6 +110,8 @@ class Product extends \Eloquent {
 			'description', 'password', 'is_paid',
 			'slug'
 		));
+
+		$product->raise(new ProductHasBeenAdded($product));
 
 		return $product;
 	}

@@ -1,5 +1,6 @@
 <?php namespace JakobSteinn\Products;
 
+use Illuminate\Support\Facades\URL;
 use Laracasts\Presenter\Presenter;
 
 class ProductPresenter extends Presenter {
@@ -25,6 +26,11 @@ class ProductPresenter extends Presenter {
 	public function priceRaw()
 	{
 		return $this->convertToKroner($this->entity->price);
+	}
+
+	public function link()
+	{
+		return URL::route('products.auth', $this->entity->slug);
 	}
 
 	/**

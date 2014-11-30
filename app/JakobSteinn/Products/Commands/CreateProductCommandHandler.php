@@ -30,6 +30,8 @@ class CreateProductCommandHandler implements CommandHandler {
 			->products()
 			->save($product);
 
+		$this->dispatchEventsFor($product);
+
 		return $product;
 	}
 }

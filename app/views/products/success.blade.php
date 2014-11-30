@@ -24,8 +24,6 @@
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th>
-								Product
 							</th>
 							<th>
 								Description
@@ -45,7 +43,6 @@
 							<td></td>
 							<td colspan="2">
 								<h3 class="text-right">Total: {{ $product->present()->price }}</h3>
-
 							</td>
 						</tr>
 					</tbody>

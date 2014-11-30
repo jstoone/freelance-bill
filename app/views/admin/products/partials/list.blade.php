@@ -35,7 +35,10 @@
                     <span class="label label-success" style="display: block;">Payed</span>
                 @else
                     <span class="label label-warning" style="display: block;">Pending</span>
-                    <a class="btn btn-default btn-xs btn-block" href="#">Send invoice</a>
+                    <a class="btn btn-default btn-xs btn-block"
+                        href="{{ URL::route('email.customer.reminder', $product->id) }}">
+						Re-send invoice
+                    </a>
                 @endif
             </td>
             <td>

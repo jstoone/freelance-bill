@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Str;
 use JakobSteinn\Core\Billing\BillingInterface;
 use JakobSteinn\Products\Product;
 
@@ -41,7 +42,7 @@ class ProductsController extends BaseController {
 	public function verify(Product $product)
 	{
 		// TODO: Extract to Command
-		if( ! Hash::check(Input::get('password'), $product->password))
+		if( ! Str::is(Input::get('password'), $product->password))
 		{
 			Flash::message('Wrong password, try again.');
 			return Redirect::back()->withInput();

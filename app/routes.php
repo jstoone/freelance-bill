@@ -1,5 +1,7 @@
 <?php
 
+Event::listen('JakobSteinn.*', 'JakobSteinn\Listeners\EmailNotifier');
+
 // Filters
 Route::when('admin/*', 'auth');
 Route::when('admin', 'auth');
@@ -133,6 +135,15 @@ Route::post('product/bill/{slug}', [
 	'as'    => 'products.bill'
 ]);
 
+
+// Customer Emails
+Route::group(['prefix' => 'admin/email'], function()
+{
+	Route::get('remind/{product}', [
+		'uses'  => 'EmailCustomerController@remind',
+		'as'    => 'email.customer.reminder'
+	]);
+});
 Route::get('/{page}', [
 	'uses'  => 'PagesController@show',
 	'as'    => 'page'
