@@ -6,6 +6,9 @@ A small service that let's you create products ie. "ABCompany new adaptive websi
 ## Installation
 *Comming soon...*
 
+## Video demo
+*Comming soon...*
+
 ## To-do
 - Keep administration simple! √
 - Add CRUD for Customers √
@@ -27,16 +30,19 @@ A small service that let's you create products ie. "ABCompany new adaptive websi
     + Route permission/access vulnerability √
     + Excape all text written by user √
 - Make the system send out an email to the customer with the product login and password √
+- Write installation guide
+    + Record video tutorial with installation guide
+- Add customer login
+    + - "Save credit card" feature
+        Requires:
+        + Customer signup
+            * Name
+            * Email
+            * Password
+            * Confirm
 
 ## Can-do
 - Write braintree payment implementation
-- "Save credit card" feature
-    Requires:
-    + Customer signup
-        * Name
-        * Email
-        * Password
-        * Confirm
 - "Non-programmer installation prompt like a CMS"
 - Migrate/rewrite project to Laravel 5
 
